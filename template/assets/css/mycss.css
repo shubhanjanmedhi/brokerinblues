@@ -1,0 +1,13 @@
+/* All custom styles */
+
+.menu{
+    justify-content: flex-start !important;
+}
+
+.brand-logo{
+    margin-right: 8% !important;
+}
+
+.price-range input{
+    max-width: 125px !important;
+}
