@@ -28,7 +28,7 @@ var allProperties;
 var allPropertiesCount = 0;
 var currentCount = 0;
 var singleProperty;
-const url = 'https://as-brokerinblues.herokuapp.com';
+const url = 'https://as-borkerinblues.herokuapp.com';
 
 if(window.location.pathname.includes('add-property')){
     var submitButton = document.getElementById('submitButton');
