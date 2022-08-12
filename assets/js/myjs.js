@@ -112,7 +112,7 @@ function addProperty(){
         balcony: balconyCheckbox,
     }
 
-    const url = '';
+    const url = 'https://f959-125-99-245-81.in.ngrok.io/v1/properties';
     const http = new XMLHttpRequest();
     try{
         http.open('POST',url);
@@ -128,7 +128,7 @@ function addProperty(){
             else{
                 submitText.innerText = 'Submit';
                 submitSpinner.style.display = 'none';
-                window.location.href = '../../templates/back-end/listing.html';
+                window.location.href = 'listing.html';
             }
         }
     }catch(e){
@@ -210,7 +210,7 @@ function editProperty(id){
                 console.log('API status: '+http.status);
             }
             else{
-                window.location.href = '../../templates/back-end/listing.html';
+                window.location.href = 'listing.html';
             }
         }
     }catch(e){
@@ -238,7 +238,7 @@ function deleteProperty(id){
                 console.log('API status: '+http.status);
             }
             else{
-                window.location.href = '../../templates/back-end/trash.html';
+                window.location.href = 'trash.html';
             }
         }
     }catch(e){
