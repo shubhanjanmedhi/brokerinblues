@@ -1,33 +1,12 @@
 //All custom functions 
 
-//client side
-
-$('.media').on('click', function(){
-    window.location.href = 'contact.html'
-});
-
-//Add property page wizard validation starts (client side)
-
-function validate1(){
-    return true;
-}
-
-function validate2(){
-    return true;
-}
-
-function validate3(){
-    return true;
-}
-
-//Add property page wizard validation ends (client side)
-
 //admin side
 
 var allProperties;
 var allPropertiesCount = 0;
 var currentCount = 0;
 var singleProperty;
+var singleAgency;
 const url = 'https://as-borkerinblues.herokuapp.com';
 
 if(window.location.pathname.includes('add-property')){
@@ -39,6 +18,7 @@ if(window.location.pathname.includes('add-property')){
 
 if(window.location.pathname.includes('edit-property')){
     var id = window.location.search.split('?')[1];
+    getProperty(id);
     var submitButton = document.getElementById('submitButton');
     submitButton.onclick = function(){
         editProperty(id);
@@ -58,6 +38,12 @@ if(window.location.pathname.includes('edit-agent')){
     submitButton.onclick = function(){
         editAgency(id);
     }
+}
+
+document.getElementById('multiFileUpload').onclick = function(){
+    var script8 = document.createElement('script');
+    script8.src = '../assets/js/bootstrap.bundle.min.js';
+    document.body.appendChild(script8);
 }
 
 //Add property page wizard validation starts (backend)
@@ -295,7 +281,9 @@ function getProperty(id){
                 console.log('API status: '+http.status);
             }
             else{
-                singleProperty = JSON.parse(http.response);
+                var res = JSON.parse(http.response)
+                singleProperty = res.data;
+                populateProperty();
             }
         }
     }catch(e){
@@ -616,6 +604,31 @@ function showAllAgencies(){
 }
 
 //Show all agencies wizard ends (backend)
+
+//Show a single agency wizard starts (backend)
+
+function showAgency(id){
+    const http = new XMLHttpRequest();
+    try{
+        http.open('GET',url+'/v1/agencies/'+id);
+        http.setRequestHeader('Content-type', 'application/json');
+        http.send();
+        http.onload = function(){
+            if(http.status != 200 && http.status != 201){
+                console.log('API status: '+http.status);
+            }
+            else{
+                var res = JSON.parse(http.response)
+                singleAgency = res.data;
+                populateAgency();
+            }
+        }
+    }catch(e){
+        console.log(e);
+    }
+}
+
+//Show a single agency wizard ends (backend)
 
 //Add agency wizard starts (backend)
 

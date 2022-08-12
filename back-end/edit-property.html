@@ -589,7 +589,7 @@
                                             <label>Property Type</label>
                                             <div class="dropdown">
                                                 <span class="dropdown-toggle font-rubik"
-                                                    data-bs-toggle="dropdown"><span>---Select---</span> <i
+                                                    data-bs-toggle="dropdown"><span id="pType">---Select---</span> <i
                                                         class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
                                                     <a class="dropdown-item" href="javascript:void(0)">Villa</a>
@@ -601,7 +601,7 @@
                                         <div class="form-group col-sm-4">
                                             <label>Property Status</label>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>---Select---</span> <i class="fas fa-angle-down"></i></span>
+                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span id="pStatus">---Select---</span> <i class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
                                                     <a class="dropdown-item" href="javascript:void(0)">For Rent</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">For Sale</a>
@@ -615,7 +615,7 @@
                                         <div class="form-group col-sm-4">
                                             <label>Max Rooms</label>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>---Select---</span> <i class="fas fa-angle-down"></i></span>
+                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span id="mRooms">---Select---</span> <i class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
                                                     <a class="dropdown-item" href="javascript:void(0)">1</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">2</a>
@@ -629,7 +629,7 @@
                                         <div class="form-group col-sm-4">
                                             <label>Beds</label>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>---Select---</span> <i class="fas fa-angle-down"></i></span>
+                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span id="bed">---Select---</span> <i class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
                                                     <a class="dropdown-item" href="javascript:void(0)">1</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">2</a>
@@ -643,7 +643,7 @@
                                         <div class="form-group col-sm-4">
                                             <label>Baths</label>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>---Select---</span> <i class="fas fa-angle-down"></i></span>
+                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span id="bath">---Select---</span> <i class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
                                                     <a class="dropdown-item" href="javascript:void(0)">1</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">2</a>
@@ -666,12 +666,9 @@
                                             <label>Agencies</label>
                                             <div class="dropdown">
                                                 <span class="dropdown-toggle font-rubik"
-                                                    data-bs-toggle="dropdown"><span>---Select---</span> <i
+                                                    data-bs-toggle="dropdown"><span id="agenc">---Select---</span> <i
                                                         class="fas fa-angle-down"></i></span>
-                                                <div class="dropdown-menu text-start">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Blue Sky</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Zephyr</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Premiere</a>
+                                                <div class="dropdown-menu text-start" id="agencyElement">
                                                 </div>
                                             </div>
                                         </div>
@@ -870,7 +867,9 @@
     <script src="../assets/js/customizer.js"></script> -->
 
     <!-- Custom js -->
+    <script src="../assets/js/property-populate.js"></script>
     <script src="../assets/js/myjs.js"></script>
+    <script src="../assets/js/agency.js"></script>
 
 </body>
 
