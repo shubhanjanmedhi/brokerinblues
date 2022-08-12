@@ -28,7 +28,7 @@ var allProperties;
 var allPropertiesCount = 0;
 var currentCount = 0;
 var singleProperty;
-const url = 'https://f959-125-99-245-81.in.ngrok.io';
+const url = 'https://1ca7-125-99-245-81.in.ngrok.io';
 
 if(window.location.pathname.includes('add-property')){
     var submitButton = document.getElementById('submitButton');
@@ -292,43 +292,44 @@ function getProperty(id){
 //Get all property wizard starts (backend)
 
 function getAllProperties(currentPage){
-    const params = {
-        currentPage: currentPage,
-        recordsPerPage: 6,
-    }
-    const http = new XMLHttpRequest();
-    try{
-        http.open('GET',url+'/v1/properties');
-        http.setRequestHeader('Content-type', 'application/json');
-        http.send(JSON.stringify(params));
-        http.onload = function(){
-            if(http.status != 200 && http.status != 201){
-                console.log('API status: '+http.status);
+
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+        headers: {
+            'ngrok-skip-browser-warning': true,
+        }
+    };
+    
+    fetch(url+'/v1/properties?currentpage='+currentPage+'&recordsPerPage='+6, requestOptions)
+    .then(response => {
+        if(response.status != 200 && response.status != 201){
+            console.log('API status: '+response.status);
+        }else{
+            var res = JSON.parse(response);
+            allPropertiesCount = res.count;
+            allProperties = res;
+
+            if(currentPage == 1){
+                currentCount = allPropertiesCount;
             }
-            else{
-                var res = JSON.parse(http.response);
-                allPropertiesCount = res.count;
 
-                if(currentPage == 1){
-                    currentCount = allPropertiesCount;
-                }
+            allProperties = res.data;
 
-                allProperties = res.data;
+            if(currentCount != 0){
+                showAllProperties();
+            }
 
-                if(currentCount != 0){
-                    showAllProperties();
-                }
-
-                if(currentCount > 6){
-                    currentCount = currentCount - 6;
-                }else{
-                    currentCount = currentCount - currentCount;
-                }
+            if(currentCount > 6){
+                currentCount = currentCount - 6;
+            }else{
+                currentCount = currentCount - currentCount;
             }
         }
-    }catch(e){
-        console.log(e);
-    }
+    })
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error)
+    );
 }
 
 //Get all property wizard ends (backend)
@@ -336,39 +337,40 @@ function getAllProperties(currentPage){
 //Show all properties starts (backend)
 
 function showAllProperties(){
-    var htmlElement = document.getElementById('htmlElement');
-    var imagesElement = '';
-    var htmlPagination = document.getElementById('htmlPagination');
-    var noOfPages = allPropertiesCount / 6;
-    var paginationElements = '';
+    for(j=0; j<allProperties.length; j++){
+        var htmlElement = document.getElementById('htmlElement');
+        var imagesElement = '';
+        var htmlPagination = document.getElementById('htmlPagination');
+        var noOfPages = allPropertiesCount / 6;
+        var paginationElements = '';
 
-    if(noOfPages > Math.round(noOfPages)){
-        noOfPages = Math.round(noOfPages)+1;
-    }else{
-        noOfPages = Math.round(noOfPages);
+        if(noOfPages > Math.round(noOfPages)){
+            noOfPages = Math.round(noOfPages)+1;
+        }else{
+            noOfPages = Math.round(noOfPages);
+        }
+
+        for(i=0; i<allProperties[j].media.length; i++){
+            imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allProperties[j].media[i]+'" class="bg-img" alt=""></a>';
+        }
+
+        htmlElement.innerHTML = '<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
+        imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">'+
+        allProperties[j].propertyStatus+'</span></div></div><div class="overlay-property-box"><a href="javascript:deleteProperty('+allProperties[j]._id+')" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete">'+
+        '<i data-feather="trash-2"></i></a><a href="edit-property.html?'+allProperties[j]._id+'" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="Edit"><i data-feather="edit"></i></a></div></div>'+
+        '<div class="property-details"><span class="font-roboto">'+allProperties[j].city+'</span><a href="../main/single-property.html?'+allProperties[j]._id+'"><h3>'+allProperties[j].propertyType+' '+allProperties[j].propertyStatus+
+        '</h3></a><h6>$'+allProperties[j].price+'</h6><p class="font-roboto light-font">'+allProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
+        allProperties[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allProperties[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
+        allProperties[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick="document.location=../main/single-property.html?'+allProperties[j]._id+'" class="btn btn-dashed btn-pill color-2">Details</button>'+
+        '</div></div></div></div>';
+
+        for(i=0; i<noOfPages; i++){
+            paginationElements = paginationElements+'<li class="page-item"><a class="page-link" href="javascript:getAllProperties('+i+')">'+i+'</a></li>';
+        }
+
+
+        htmlPagination.innerHTML = '<ul class="pagination">'+paginationElements+'</ul>';
     }
-
-    for(i=0; i<allProperties.media.length; i++){
-        imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allProperties.media[i]+'" class="bg-img" alt=""></a>';
-    }
-
-    htmlElement.innerHTML = '<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
-    imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">'+
-    allProperties.propertyStatus+'</span></div></div><div class="overlay-property-box"><a href="javascript:deleteProperty('+allProperties._id+')" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete">'+
-    '<i data-feather="trash-2"></i></a><a href="edit-property.html?'+allProperties._id+'" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="Edit"><i data-feather="edit"></i></a></div></div>'+
-    '<div class="property-details"><span class="font-roboto">'+allProperties.city+'</span><a href="../main/single-property.html?'+allProperties._id+'"><h3>'+allProperties.propertyType+' '+allProperties.propertyStatus+
-    '</h3></a><h6>$'+allProperties.price+'</h6><p class="font-roboto light-font">'+allProperties.description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
-    allProperties.beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allProperties.baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
-    allProperties.area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick="document.location=../main/single-property.html?'+allProperties._id+'" class="btn btn-dashed btn-pill color-2">Details</button>'+
-    '</div></div></div></div>';
-
-    for(i=0; i<noOfPages; i++){
-        paginationElements = paginationElements+'<li class="page-item"><a class="page-link" href="javascript:getAllProperties('+i+')">'+i+'</a></li>';
-    }
-
-
-    htmlPagination.innerHTML = '<ul class="pagination">'+paginationElements+'</ul>';
-    
 }
 
 //Show all properties end (backend)
