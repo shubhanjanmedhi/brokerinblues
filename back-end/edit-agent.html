@@ -590,7 +590,7 @@
                                     <form class="row gx-3">
                                         <div class="form-group col-md-4 col-sm-6">
                                             <label>Agency Name <span class="font-danger">*</span></label>
-                                            <input type="text" class="form-control" value="Paige" required="">
+                                            <input type="text" id="name" class="form-control" value="Paige" required="">
                                         </div>
                                         <!-- <div class="form-group col-md-4 col-sm-6">
                                             <label>Last name <span class="font-danger">*</span></label>
@@ -608,7 +608,7 @@
                                         </div> -->
                                         <div class="form-group col-md-4 col-sm-6">
                                             <label>Phone number <span class="font-danger">*</span></label>
-                                            <input type="number" class="form-control" value="7596140312" required="">
+                                            <input type="number" id="phone" class="form-control" value="7596140312" required="">
                                         </div>
                                         <!-- <div class="form-group col-md-4 col-sm-6">
                                             <label>Date of birth <span class="font-danger">*</span></label>
@@ -616,7 +616,7 @@
                                         </div> -->
                                         <div class="form-group col-md-4 col-sm-6">
                                             <label>Email Address <span class="font-danger">*</span></label>
-                                            <input type="text" class="form-control" value="turner@gmail.in" required="">
+                                            <input type="text" id="email" class="form-control" value="turner@gmail.in" required="">
                                         </div>
                                         <!-- <div class="form-group col-sm-6">
                                             <label>Reset password <span class="font-danger">*</span></label>
@@ -641,14 +641,18 @@
                                     </form>
                                     <div class="dropzone-admin mb-0">
                                         <label>Media</label>
-                                        <form class="dropzone" id="multiFileUpload" action="/upload.php">
+                                        <!-- <form class="dropzone" id="multiFileUpload" action="/upload.php">
                                             <div class="dz-message needsclick"><i class="fas fa-cloud-upload-alt"></i>
                                             <h6>Drop files here or click to upload.</h6>
                                             </div>
-                                        </form>
+                                        </form> -->
+                                        <input type="file" name="files" id="multiFileUpload">
                                     </div>
                                     <div class="form-btn">
-                                        <button type="button" class="btn btn-pill btn-gradient color-4">Save</button>
+                                        <div id="submitButton" class="btn btn-pill btn-gradient color-4">
+                                            <span id="submitSpinner" class="spinner-border spinner-border-sm" style="margin-right: 5px;display: none;"></span>
+                                            <span id="submitText">Submit</span>
+                                        </div>
                                         <!-- <button type="button" class="btn btn-pill btn-dashed color-4">Cancel</button> -->
                                     </div>
                                  </div>
@@ -686,7 +690,7 @@
     <!-- tap to top end -->
 
     <!-- customizer start -->
-    <div class="customizer-wrap">
+    <!-- <div class="customizer-wrap">
         <div class="customizer-links">
             <i data-feather="settings"></i>
         </div>
@@ -734,7 +738,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- customizer end -->
 
     <!-- latest jquery-->
@@ -747,12 +751,12 @@
     <script src="../assets/js/feather-icon/feather.min.js"></script>
     <script src="../assets/js/feather-icon/feather-icon.js"></script>
 
-    <!-- Dropzone js -->
+    <!-- Dropzone js
     <script src="../assets/js/dropzone/dropzone.js"></script>
-    <script src="../assets/js/dropzone/dropzone-script.js"></script>
+    <script src="../assets/js/dropzone/dropzone-script.js"></script> -->
 
-    <!-- datepicker js-->
-    <script src="../assets/js/date-picker.js"></script>
+    <!-- datepicker js
+    <script src="../assets/js/date-picker.js"></script> -->
 
     <!-- sidebar js -->
     <script src="../assets/js/sidebar.js"></script>
@@ -760,12 +764,12 @@
     <!--admin js -->
     <script src="../assets/js/admin-script.js"></script>
 
-    <!-- Customizer js-->
-    <script src="../assets/js/customizer.js"></script>
+    <!-- Customizer js
+    <script src="../assets/js/customizer.js"></script> -->
 
     
-    <!-- Color-picker js-->
-    <script src="../assets/js/color/two-color-picker.js"></script>
+    <!-- Color-picker js
+    <script src="../assets/js/color/two-color-picker.js"></script> -->
     
 </body>
 
