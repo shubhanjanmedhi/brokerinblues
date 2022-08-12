@@ -335,8 +335,8 @@ function getAllProperties(currentPage,recordsPerPage){
 //Show all properties starts (backend)
 
 function showAllProperties(recordsPerPage){
-    for(j=0; j<allProperties.length; j++){
         var htmlElement = document.getElementById('htmlElement');
+        var htmlElementVar = '';
         var imagesElement = '';
         var htmlPagination = document.getElementById('htmlPagination');
         var noOfPages = allPropertiesCount / recordsPerPage;
@@ -348,11 +348,13 @@ function showAllProperties(recordsPerPage){
             noOfPages = Math.round(noOfPages);
         }
 
+    for(j=0; j<allProperties.length; j++){
+
         for(i=0; i<allProperties[j].media.length; i++){
             imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allProperties[j].media[i]+'" class="bg-img" alt=""></a>';
         }
 
-        htmlElement.innerHTML = '<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
+        htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
         imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">'+
         allProperties[j].propertyStatus+'</span></div></div><div class="overlay-property-box"><a href="javascript:deleteProperty('+allProperties[j]._id+')" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete">'+
         '<i data-feather="trash-2"></i></a><a href="edit-property.html?'+allProperties[j]._id+'" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="Edit"><i data-feather="edit"></i></a></div></div>'+
@@ -362,17 +364,52 @@ function showAllProperties(recordsPerPage){
         allProperties[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick=details('+allProperties[j]._id+') class="btn btn-dashed btn-pill color-2">Details</button>'+
         '</div></div></div></div>';
 
-        for(i=1; i<=noOfPages; i++){
-            paginationElements = paginationElements+'<li class="page-item"><a class="page-link" href="javascript:getAllProperties('+i+')">'+i+'</a></li>';
-        }
-
-
-        htmlPagination.innerHTML = '<ul class="pagination">'+paginationElements+'</ul>';
     }
+
+    for(i=1; i<=noOfPages; i++){
+        paginationElements = paginationElements+'<li class="page-item"><a class="page-link" href="javascript:getAllProperties('+i+',6)">'+i+'</a></li>';
+    }
+
+    htmlElement.innerHTML = htmlElementVar;
+    htmlPagination.innerHTML = '<ul class="pagination">'+paginationElements+'</ul>';
+    loadScript();
 }
 
 function details(id){
     window.location.href = '../main/single-property.html?'+id;
+}
+
+function loadScript(){
+    var script = document.createElement('script');
+    script.src = '../assets/js/feather-icon/feather.min.js';
+    var script1 = document.createElement('script');
+    script1.src = '../assets/js/feather-icon/feather-icon.js';
+    var script2 = document.createElement('script');
+    script2.src = '../assets/js/jquery.magnific-popup.js';
+    var script3 = document.createElement('script');
+    script3.src = '../assets/js/zoom-gallery.js';
+    var script4 = document.createElement('script');
+    script4.src = '../assets/js/slick.js';
+    var script5 = document.createElement('script');
+    script5.src = '../assets/js/slick-animation.min.js';
+    var script6 = document.createElement('script');
+    script6.src = '../assets/js/custom-slick.js';
+    var script7 = document.createElement('script');
+    script7.src = '../assets/js/customizer.js';
+    var script8 = document.createElement('script');
+    script8.src = '../assets/js/color/custom-colorpicker.js';
+    var script9 = document.createElement('script');
+    script9.src = '../assets/js/bootstrap.bundle.min.js';
+    document.body.appendChild(script);
+    document.body.appendChild(script1);
+    document.body.appendChild(script2);
+    document.body.appendChild(script3);
+    document.body.appendChild(script4);
+    document.body.appendChild(script5);
+    document.body.appendChild(script6);
+    document.body.appendChild(script7);
+    document.body.appendChild(script8);
+    document.body.appendChild(script9);
 }
 
 //Show all properties end (backend)
