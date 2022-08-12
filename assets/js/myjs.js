@@ -28,7 +28,7 @@ var allProperties;
 var allPropertiesCount = 0;
 var currentCount = 0;
 var singleProperty;
-const url = 'https://1ca7-125-99-245-81.in.ngrok.io';
+const url = 'https://as-brokerinblues.herokuapp.com';
 
 if(window.location.pathname.includes('add-property')){
     var submitButton = document.getElementById('submitButton');
@@ -293,43 +293,41 @@ function getProperty(id){
 
 function getAllProperties(currentPage){
 
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow',
-        headers: {
-            'ngrok-skip-browser-warning': true,
+    const http = new XMLHttpRequest();
+    try{
+        http.open('GET',url+'/v1/properties?currentpage='+currentPage+'&recordsPerPage='+6);
+        //http.setRequestHeader('ngrok-skip-browser-warning',true);
+        http.setRequestHeader('Content-type', 'application/json');
+        http.send();
+        http.onload = function(){
+            if(http.status != 200 && http.status != 201){
+                console.log('API status: '+http.status);
+            }
+            else{
+                var res = JSON.parse(http.response);
+                allPropertiesCount = res.count;
+                allProperties = res;
+
+                if(currentPage == 1){
+                    currentCount = allPropertiesCount;
+                }
+
+                allProperties = res.data;
+
+                if(currentCount != 0){
+                    showAllProperties();
+                }
+
+                if(currentCount > 6){
+                    currentCount = currentCount - 6;
+                }else{
+                    currentCount = currentCount - currentCount;
+                }
+            }
         }
-    };
-    
-    fetch(url+'/v1/properties?currentpage='+currentPage+'&recordsPerPage='+6, requestOptions)
-    .then(response => {
-        if(response.status != 200 && response.status != 201){
-            console.log('API status: '+response.status);
-        }else{
-            var res = JSON.parse(response);
-            allPropertiesCount = res.count;
-            allProperties = res;
-
-            if(currentPage == 1){
-                currentCount = allPropertiesCount;
-            }
-
-            allProperties = res.data;
-
-            if(currentCount != 0){
-                showAllProperties();
-            }
-
-            if(currentCount > 6){
-                currentCount = currentCount - 6;
-            }else{
-                currentCount = currentCount - currentCount;
-            }
-        }
-    })
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error)
-    );
+    }catch(e){
+        console.log(e);
+    }
 }
 
 //Get all property wizard ends (backend)
@@ -361,16 +359,20 @@ function showAllProperties(){
         '<div class="property-details"><span class="font-roboto">'+allProperties[j].city+'</span><a href="../main/single-property.html?'+allProperties[j]._id+'"><h3>'+allProperties[j].propertyType+' '+allProperties[j].propertyStatus+
         '</h3></a><h6>$'+allProperties[j].price+'</h6><p class="font-roboto light-font">'+allProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
         allProperties[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allProperties[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
-        allProperties[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick="document.location=../main/single-property.html?'+allProperties[j]._id+'" class="btn btn-dashed btn-pill color-2">Details</button>'+
+        allProperties[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick=details('+allProperties[j]._id+') class="btn btn-dashed btn-pill color-2">Details</button>'+
         '</div></div></div></div>';
 
-        for(i=0; i<noOfPages; i++){
+        for(i=1; i<=noOfPages; i++){
             paginationElements = paginationElements+'<li class="page-item"><a class="page-link" href="javascript:getAllProperties('+i+')">'+i+'</a></li>';
         }
 
 
         htmlPagination.innerHTML = '<ul class="pagination">'+paginationElements+'</ul>';
     }
+}
+
+function details(id){
+    window.location.href = '../main/single-property.html?'+id;
 }
 
 //Show all properties end (backend)
