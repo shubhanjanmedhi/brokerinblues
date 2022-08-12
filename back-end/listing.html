@@ -602,66 +602,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-12">
-                                            <div class="property-2 row column-sm property-label property-grid">
-                                                <div class="col-xl-4 col-md-6 xl-6">
-                                                    <div class="property-box">
-                                                        <div class="property-image">
-                                                            <div class="property-slider">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="../assets/images/property/1.jpg" class="bg-img" alt="">
-                                                                    
-                                                                </a>
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="../assets/images/property/2.jpg" class="bg-img" alt="">
-                                                                    
-                                                                </a>
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="../assets/images/property/3.jpg" class="bg-img" alt="">
-                                                                    
-                                                                </a>
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="../assets/images/property/4.jpg" class="bg-img" alt="">
-                                                                    
-                                                                </a>
-                                                            </div>
-                                                            <div class="labels-left">
-                                                                <div>
-                                                                    <span class="label label-shadow">sale</span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- <div class="seen-data">
-                                                                <i data-feather="camera"></i>
-                                                                <span>04</span>
-                                                            </div>                  -->
-                                                            <div class="overlay-property-box">
-                                                                <a href="javascript:void(0)" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete"> 
-                                                                    <i data-feather="trash-2"></i>
-                                                                </a>
-                                                                <a href="edit-property.html" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
-                                                                    <i data-feather="edit"></i>                                                                               
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                        
-                                                        <div class="property-details">
-                                                            <span class="font-roboto">France</span>
-                                                            <a href="../main/single-property.html">
-                                                                <h3>Little Acorn Farm</h3>
-                                                            </a>
-                                                            <h6>$6558.00*</h6>
-                                                            <p class="font-roboto light-font">Real estate is divided into several categories, including residential property, commercial property and industrial property.</p>
-                                                            <ul>
-                                                                <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : 4</li>
-                                                                <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : 4</li>
-                                                                <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
-                                                            </ul>
-                                                            <div class="property-btn d-flex">
-                                                                <span>August 4, 2022</span>
-                                                                <button type="button"  onclick="document.location='../main/single-property.html'" class="btn btn-dashed btn-pill color-2">Details</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="property-2 row column-sm property-label property-grid" id="htmlElement">
                                                 <!-- <div class="col-xl-4 col-md-6 xl-6">
                                                     <div class="property-box">
                                                         <div class="property-image">
@@ -963,24 +904,7 @@
                                                     </div>
                                                 </div> -->
                                             </div>
-                                            <nav class="theme-pagination">
-                                                <ul class="pagination">
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="javascript:void(0)" aria-label="Previous">
-                                                            <span aria-hidden="true">«</span>
-                                                            <span class="sr-only">Previous</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="javascript:void(0)" aria-label="Next">
-                                                            <span aria-hidden="true">»</span>
-                                                            <span class="sr-only">Next</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                            <nav class="theme-pagination" id="htmlPagination">
                                             </nav>
                                         </div>
                                     </div>
@@ -1102,6 +1026,7 @@
 
     <!-- Custom js -->
     <script src="../assets/js/myjs.js"></script>
+    <script>getAllProperties(1);</script>
 
 </body>
 
