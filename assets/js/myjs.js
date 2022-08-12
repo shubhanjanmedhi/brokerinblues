@@ -285,15 +285,11 @@ function deleteProperty(id){
 //Get single property wizard starts (backend)
 
 function getProperty(id){
-    const params = {
-        id: id,
-    }
-
     const http = new XMLHttpRequest();
     try{
-        http.open('GET',url+'/v1/properties');
+        http.open('GET',url+'/v1/properties/'+id);
         http.setRequestHeader('Content-type', 'application/json');
-        http.send(JSON.stringify(params));
+        http.send();
         http.onload = function(){
             if(http.status != 200 && http.status != 201){
                 console.log('API status: '+http.status);
@@ -442,7 +438,7 @@ function loadScript(){
 function showTrash(currentPage, recordsPerPage){
     const http = new XMLHttpRequest();
     try{
-        http.open('GET',url+'/v1/properties?currentpage='+currentPage+'&recordsPerPage='+recordsPerPage);
+        http.open('GET',url+'/v1/properties/list?currentpage='+currentPage+'&recordsPerPage='+recordsPerPage);
         http.setRequestHeader('Content-type', 'application/json');
         http.send();
         http.onload = function(){
@@ -546,7 +542,7 @@ function restoreProperty(id){
 function showTicket(){
     const http = new XMLHttpRequest();
     try{
-        http.open('GET',url+'/v1/tickets');
+        http.open('GET',url+'/v1/interested');
         http.setRequestHeader('Content-type', 'application/json');
         http.send();
         http.onload = function(){
