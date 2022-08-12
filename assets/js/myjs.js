@@ -291,11 +291,11 @@ function getProperty(id){
 
 //Get all property wizard starts (backend)
 
-function getAllProperties(currentPage){
+function getAllProperties(currentPage,recordsPerPage){
 
     const http = new XMLHttpRequest();
     try{
-        http.open('GET',url+'/v1/properties?currentpage='+currentPage+'&recordsPerPage='+6);
+        http.open('GET',url+'/v1/properties?currentpage='+currentPage+'&recordsPerPage='+recordsPerPage);
         //http.setRequestHeader('ngrok-skip-browser-warning',true);
         http.setRequestHeader('Content-type', 'application/json');
         http.send();
@@ -315,11 +315,11 @@ function getAllProperties(currentPage){
                 allProperties = res.data;
 
                 if(currentCount != 0){
-                    showAllProperties();
+                    showAllProperties(recordsPerPage);
                 }
 
-                if(currentCount > 6){
-                    currentCount = currentCount - 6;
+                if(currentCount > recordsPerPage){
+                    currentCount = currentCount - recordsPerPage;
                 }else{
                     currentCount = currentCount - currentCount;
                 }
@@ -334,12 +334,12 @@ function getAllProperties(currentPage){
 
 //Show all properties starts (backend)
 
-function showAllProperties(){
+function showAllProperties(recordsPerPage){
     for(j=0; j<allProperties.length; j++){
         var htmlElement = document.getElementById('htmlElement');
         var imagesElement = '';
         var htmlPagination = document.getElementById('htmlPagination');
-        var noOfPages = allPropertiesCount / 6;
+        var noOfPages = allPropertiesCount / recordsPerPage;
         var paginationElements = '';
 
         if(noOfPages > Math.round(noOfPages)){
