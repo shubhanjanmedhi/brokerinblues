@@ -26,9 +26,12 @@ function validate3(){
 
 var allProperties;
 var singleProperty;
-var submitButton = document.getElementById('submitButton');
-submitButton.onclick = function (){
-    addProperty();
+
+if(window.location.pathname.includes('add-property')){
+    var submitButton = document.getElementById('submitButton');
+    submitButton.onclick = function (){
+        addProperty();
+    }
 }
 
 //Add property page wizard validation starts (backend)
@@ -51,8 +54,8 @@ function addProperty(){
     var description = document.getElementById('description').value;
     var address = document.getElementById('address').value;
     var zipCode = parseInt(document.getElementById('zipCode').value);
-    var country = $('.dropdown-toggle').dropdown()[6].innerText;
-    var city = $('.dropdown-toggle').dropdown()[7].innerText;
+    var country = document.getElementById('country').value;
+    var city = document.getElementById('city').value;
     var landmark = document.getElementById('landmark').value;
     var videoLink = document.getElementById('videoLink').value;
     var emergencyCheckbox = document.getElementById('chk-ani').checked;
@@ -74,7 +77,6 @@ function addProperty(){
 
     submitText.innerText = 'Submitting...';
     submitSpinner.style.display = 'inline-block';
-    submitButton.onclick = '';
 
     if(totalFiles > 0){
         for (i = 0; i < totalFiles; i++) {
@@ -123,7 +125,6 @@ function addProperty(){
                 console.log('API status: '+http.status);
                 submitText.innerText = 'Submit';
                 submitSpinner.style.display = 'none';
-                submitButton.onclick = addProperty();
             }
             else{
                 submitText.innerText = 'Submit';
