@@ -3,7 +3,7 @@
 //client side
 
 $('.media').on('click', function(){
-    window.location.href = '../../template/main/contact.html'
+    window.location.href = 'contact.html'
 });
 
 //Add property page wizard validation starts (client side)
