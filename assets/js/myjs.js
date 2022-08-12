@@ -385,6 +385,10 @@ function details(id){
 }
 
 function loadScript(){
+    var script9 = document.createElement('script');
+    script9.src = '../assets/js/jquery-3.6.0.min.js'
+    var script8 = document.createElement('script');
+    script8.src = '../assets/js/bootstrap.bundle.min.js';
     var script = document.createElement('script');
     script.src = '../assets/js/feather-icon/feather.min.js';
     var script1 = document.createElement('script');
@@ -399,10 +403,12 @@ function loadScript(){
     script5.src = '../assets/js/slick-animation.min.js';
     var script6 = document.createElement('script');
     script6.src = '../assets/js/custom-slick.js';
+    var script10 = document.createElement('script');
+    script10.src = '../assets/js/admin-script.js';
     var script7 = document.createElement('script');
     script7.src = '../assets/js/customizer.js';
-    var script8 = document.createElement('script');
-    script8.src = '../assets/js/bootstrap.bundle.min.js';
+    document.body.appendChild(script9);
+    document.body.appendChild(script8);
     document.body.appendChild(script);
     document.body.appendChild(script1);
     document.body.appendChild(script2);
@@ -410,8 +416,8 @@ function loadScript(){
     document.body.appendChild(script4);
     document.body.appendChild(script5);
     document.body.appendChild(script6);
+    document.body.appendChild(script10);
     document.body.appendChild(script7);
-    document.body.appendChild(script8);
 }
 
 //Show all properties end (backend)
