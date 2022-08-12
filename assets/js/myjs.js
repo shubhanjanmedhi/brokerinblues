@@ -1,11 +1,6 @@
 //All custom functions 
 
-var allProperties;
-var singleProperty;
-var submitButton = document.getElementById('submitButton');
-submitButton.onclick = function (){
-    addProperty();
-}
+//client side
 
 $('.media').on('click', function(){
     window.location.href = '../../template/main/contact.html'
@@ -26,6 +21,15 @@ function validate3(){
 }
 
 //Add property page wizard validation ends (client side)
+
+//admin side
+
+var allProperties;
+var singleProperty;
+var submitButton = document.getElementById('submitButton');
+submitButton.onclick = function (){
+    addProperty();
+}
 
 //Add property page wizard validation starts (backend)
 
