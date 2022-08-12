@@ -702,11 +702,12 @@
                                     </form>
                                     <div class="dropzone-admin">
                                         <label>Media</label>
-                                        <form class="dropzone" id="multiFileUpload" action="/upload.php">
+                                        <!-- <form class="dropzone" id="multiFileUpload" action="/upload.php">
                                             <div class="dz-message needsclick"><i class="fas fa-cloud-upload-alt"></i>
                                             <h6>Drop files here or click to upload.</h6>
                                             </div>
-                                        </form>
+                                        </form> -->
+                                        <input type="file" name="files" id="multiFileUpload" multiple>
                                     </div>
                                     <form class="row gx-3">
                                         <div class="form-group col-sm-12">
@@ -749,7 +750,10 @@
                                             </div>
                                         </div>
                                         <div class="form-btn col-sm-12">
-                                            <button type="button" class="btn btn-pill btn-gradient color-4">Submit</button>
+                                            <div id="submitButton" class="btn btn-pill btn-gradient color-4">
+                                                <span id="submitSpinner" class="spinner-border spinner-border-sm" style="margin-right: 5px;display: none;"></span>
+                                                <span id="submitText">Submit</span>
+                                            </div>
                                             <!-- <button type="button" class="btn btn-pill btn-dashed color-4">Cancel</button> -->
                                         </div>
                                     </form>
@@ -788,7 +792,7 @@
     <!-- tap to top end -->
 
     <!-- customizer start -->
-    <div class="customizer-wrap">
+    <!-- <div class="customizer-wrap">
         <div class="customizer-links">
             <i data-feather="settings"></i>
         </div>
@@ -836,7 +840,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- customizer end -->
 
     <!-- latest jquery-->
@@ -853,8 +857,8 @@
     <script src="../assets/js/dropzone/dropzone.js"></script>
     <script src="../assets/js/dropzone/dropzone-script.js"></script>
 
-    <!-- Color-picker js-->
-    <script src="../assets/js/color/custom-colorpicker.js"></script>
+    <!-- Color-picker js
+    <script src="../assets/js/color/custom-colorpicker.js"></script> -->
     
     <!-- sidebar js -->
     <script src="../assets/js/sidebar.js"></script>

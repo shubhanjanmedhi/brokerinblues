@@ -37,6 +37,14 @@ if(window.location.pathname.includes('add-property')){
     }
 }
 
+if(window.location.pathname.includes('edit-property')){
+    var id = window.location.search.split('?')[1];
+    var submitButton = document.getElementById('submitButton');
+    submitButton.onclick = function(){
+        editProperty(id);
+    }
+}
+
 //Add property page wizard validation starts (backend)
 
 
@@ -222,6 +230,7 @@ function editProperty(id){
             console.log('API status: '+response.status);
             submitText.innerText = 'Submit';
             submitSpinner.style.display = 'none';
+            console.log(response);
         }else{
             submitText.innerText = 'Submit';
             submitSpinner.style.display = 'none';
@@ -238,15 +247,11 @@ function editProperty(id){
 //Delete property wizard starts (backend)
 
 function deleteProperty(id){
-    const params = {
-        id: id,
-    }
-
     const http = new XMLHttpRequest();
     try{
-        http.open('DELETE',url+'/v1/properties');
+        http.open('POST',url+'/v1/properties/'+id);
         http.setRequestHeader('Content-type', 'application/json');
-        http.send(JSON.stringify(params));
+        http.send();
         http.onload = function(){
             if(http.status != 200 && http.status != 201){
                 console.log('API status: '+http.status);
@@ -356,7 +361,7 @@ function showAllProperties(recordsPerPage){
 
         htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
         imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">'+
-        allProperties[j].propertyStatus+'</span></div></div><div class="overlay-property-box"><a href="javascript:deleteProperty('+allProperties[j]._id+')" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete">'+
+        allProperties[j].propertyStatus+'</span></div></div><div class="overlay-property-box"><a href=javascript:deleteProperty("'+allProperties[j]._id+'") class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete">'+
         '<i data-feather="trash-2"></i></a><a href="edit-property.html?'+allProperties[j]._id+'" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="Edit"><i data-feather="edit"></i></a></div></div>'+
         '<div class="property-details"><span class="font-roboto">'+allProperties[j].city+'</span><a href="../main/single-property.html?'+allProperties[j]._id+'"><h3>'+allProperties[j].propertyType+' '+allProperties[j].propertyStatus+
         '</h3></a><h6>$'+allProperties[j].price+'</h6><p class="font-roboto light-font">'+allProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
@@ -397,9 +402,7 @@ function loadScript(){
     var script7 = document.createElement('script');
     script7.src = '../assets/js/customizer.js';
     var script8 = document.createElement('script');
-    script8.src = '../assets/js/color/custom-colorpicker.js';
-    var script9 = document.createElement('script');
-    script9.src = '../assets/js/bootstrap.bundle.min.js';
+    script8.src = '../assets/js/bootstrap.bundle.min.js';
     document.body.appendChild(script);
     document.body.appendChild(script1);
     document.body.appendChild(script2);
@@ -409,7 +412,6 @@ function loadScript(){
     document.body.appendChild(script6);
     document.body.appendChild(script7);
     document.body.appendChild(script8);
-    document.body.appendChild(script9);
 }
 
 //Show all properties end (backend)
