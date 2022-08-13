@@ -7,7 +7,7 @@ var allPropertiesCount = 0;
 var currentCount = 0;
 var singleProperty;
 var singleAgency;
-const url = 'https://as-borkerinblues.herokuapp.com';
+const url = 'https://as-brokerinblues.herokuapp.com';
 
 if(window.location.pathname.includes('add-property')){
     var submitButton = document.getElementById('submitButton');
@@ -34,16 +34,19 @@ if(window.location.pathname.includes('add-agent')){
 
 if(window.location.pathname.includes('edit-agent')){
     var id = window.location.search.split('?')[1];
+    showAgency(id);
     var submitButton = document.getElementById('submitButton');
     submitButton.onclick = function(){
         editAgency(id);
     }
 }
 
-document.getElementById('multiFileUpload').onclick = function(){
-    var script8 = document.createElement('script');
-    script8.src = '../assets/js/bootstrap.bundle.min.js';
-    document.body.appendChild(script8);
+if(window.location.pathname.includes('back-end/edit')){
+    document.getElementById('multiFileUpload').onclick = function(){
+        var script8 = document.createElement('script');
+        script8.src = '../assets/js/bootstrap.bundle.min.js';
+        document.body.appendChild(script8);
+    }
 }
 
 //Add property page wizard validation starts (backend)
@@ -56,13 +59,13 @@ document.getElementById('multiFileUpload').onclick = function(){
 function addProperty(){
     var propertyType = $('.dropdown-toggle').dropdown()[0].innerText;
     var propertyStatus = $('.dropdown-toggle').dropdown()[1].innerText;
-    var propertyPrice = parseInt(document.getElementById('propertyPrice').value);
-    var maxRooms =  parseInt($('.dropdown-toggle').dropdown()[2].innerText);
-    var beds = parseInt($('.dropdown-toggle').dropdown()[3].innerText);
-    var baths = parseInt($('.dropdown-toggle').dropdown()[4].innerText);
+    var featured = $('.dropdown-toggle').dropdown()[2].innerText;
+    var maxRooms =  parseInt($('.dropdown-toggle').dropdown()[3].innerText);
+    var beds = parseInt($('.dropdown-toggle').dropdown()[4].innerText);
+    var baths = parseInt($('.dropdown-toggle').dropdown()[5].innerText);
     var area = parseInt(document.getElementById('area').value);
     var price = parseInt(document.getElementById('price').value);
-    var agencies = $('.dropdown-toggle').dropdown()[5].innerText;
+    var agencies = $('.dropdown-toggle').dropdown()[6].innerText;
     var description = document.getElementById('description').value;
     var address = document.getElementById('address').value;
     var zipCode = parseInt(document.getElementById('zipCode').value);
@@ -92,7 +95,7 @@ function addProperty(){
 
     formdata.append("propertyType", propertyType);
     formdata.append("propertyStatus", propertyStatus);
-    formdata.append("propertyPrice", propertyPrice);
+    formdata.append("featured", featured);
     formdata.append("maxRooms", maxRooms);
     formdata.append("beds", beds);
     formdata.append("baths", baths);
@@ -152,13 +155,13 @@ function addProperty(){
 function editProperty(id){
     var propertyType = $('.dropdown-toggle').dropdown()[0].innerText;
     var propertyStatus = $('.dropdown-toggle').dropdown()[1].innerText;
-    var propertyPrice = parseInt(document.getElementById('propertyPrice').value);
-    var maxRooms =  parseInt($('.dropdown-toggle').dropdown()[2].innerText);
-    var beds = parseInt($('.dropdown-toggle').dropdown()[3].innerText);
-    var baths = parseInt($('.dropdown-toggle').dropdown()[4].innerText);
+    var featured = $('.dropdown-toggle').dropdown()[2].innerText;
+    var maxRooms =  parseInt($('.dropdown-toggle').dropdown()[3].innerText);
+    var beds = parseInt($('.dropdown-toggle').dropdown()[4].innerText);
+    var baths = parseInt($('.dropdown-toggle').dropdown()[5].innerText);
     var area = parseInt(document.getElementById('area').value);
     var price = parseInt(document.getElementById('price').value);
-    var agencies = $('.dropdown-toggle').dropdown()[5].innerText;
+    var agencies = $('.dropdown-toggle').dropdown()[6].innerText;
     var description = document.getElementById('description').value;
     var address = document.getElementById('address').value;
     var zipCode = parseInt(document.getElementById('zipCode').value);
@@ -189,7 +192,7 @@ function editProperty(id){
     formdata.append("id",id);
     formdata.append("propertyType", propertyType);
     formdata.append("propertyStatus", propertyStatus);
-    formdata.append("propertyPrice", propertyPrice);
+    formdata.append("featured", featured);
     formdata.append("maxRooms", maxRooms);
     formdata.append("beds", beds);
     formdata.append("baths", baths);
@@ -317,7 +320,11 @@ function getAllProperties(currentPage,recordsPerPage){
                 allProperties = res.data;
 
                 if(currentCount != 0){
-                    showAllProperties(recordsPerPage);
+                    if(window.location.href.includes('main')){
+                        showAllPropertiesFrontend(recordsPerPage);
+                    }else{
+                        showAllProperties(recordsPerPage);
+                    }
                 }
 
                 if(currentCount > recordsPerPage){
@@ -339,7 +346,6 @@ function getAllProperties(currentPage,recordsPerPage){
 function showAllProperties(recordsPerPage){
     var htmlElement = document.getElementById('htmlElement');
     var htmlElementVar = '';
-    var imagesElement = '';
     var htmlPagination = document.getElementById('htmlPagination');
     var noOfPages = allPropertiesCount / recordsPerPage;
     var paginationElements = '';
@@ -351,6 +357,7 @@ function showAllProperties(recordsPerPage){
     }
 
     for(j=0; j<allProperties.length; j++){
+        var imagesElement = '';
 
         for(i=0; i<allProperties[j].media.length; i++){
             imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allProperties[j].media[i]+'" class="bg-img" alt=""></a>';
@@ -697,6 +704,7 @@ function editAgency(id){
     submitText.innerText = 'Submitting...';
     submitSpinner.style.display = 'inline-block';
 
+    formdata.append("id", id);
     formdata.append("name", name);
     formdata.append("phone", phone);
     formdata.append("email", email);
@@ -710,7 +718,7 @@ function editAgency(id){
     var requestOptions = {
     method: 'PUT',
     body: formdata,
-    redirect: 'follow'
+    redirect: 'follow',
     };
 
     fetch(url+'/v1/agencies', requestOptions)

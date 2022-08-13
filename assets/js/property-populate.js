@@ -3,7 +3,7 @@
 function populateProperty(){
     var pType = document.getElementById('pType');
     var pStatus = document.getElementById('pStatus');
-    var pPice = document.getElementById('propertyPrice');
+    var featured = document.getElementById('featured');
     var mRooms = document.getElementById('mRooms');
     var bed = document.getElementById('bed');
     var bath = document.getElementById('bath');
@@ -30,7 +30,7 @@ function populateProperty(){
 
     pType.innerText = singleProperty.propertyType;
     pStatus.innerText = singleProperty.propertyStatus;
-    pPice.value = singleProperty.propertyPrice;
+    featured.innerText = singleProperty.featured;
     mRooms.innerText = singleProperty.maxRooms;
     bed.innerText = singleProperty.beds;
     bath.innerText = singleProperty.baths;

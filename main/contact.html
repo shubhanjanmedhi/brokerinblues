@@ -600,7 +600,7 @@
                                             <i data-feather="user"></i>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Enter your name" required="">
+                                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required="">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -615,10 +615,7 @@
                                             class="form-control" 
                                             name="mobnumber" 
                                             id="tbNumbers" 
-                                            oninput="maxLengthCheck(this)"
                                             type = "tel"
-                                            onkeypress="javascript:return isNumber(event)"
-                                            maxlength = "9"
                                             required="">
                                 </div>
                             </div>
@@ -629,15 +626,17 @@
                                             <i data-feather="mail"></i>
                                         </div>
                                     </div>
-                                    <input type="email" class="form-control" placeholder="email address" required="">
+                                    <input type="email" id="email" class="form-control" placeholder="email address" required="">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6">Write here something
-                                </textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Write something here" rows="6"></textarea>
                             </div>
                             <div class="col-md-12 submit-btn">
-                                <button class="btn btn-gradient color-2 btn-pill" type="submit">Send Your Message</button>
+                                <div id="submitButton" class="btn btn-pill btn-gradient color-2">
+                                    <span id="submitSpinner" class="spinner-border spinner-border-sm" style="margin-right: 5px;display: none;"></span>
+                                    <span id="submitText">Send Your Message</span>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -648,7 +647,7 @@
     <!-- Get in touch section end -->
 
     <!-- contact details section start -->
-    <section class="small-section contact_section pt-0 contact_bottom">
+    <!-- <section class="small-section contact_section pt-0 contact_bottom">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
@@ -684,7 +683,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- contact details section end -->
 
     <!-- footer start -->
@@ -863,7 +862,7 @@
     <!-- tap to top end -->
 
      <!-- customizer start -->
-     <div class="customizer-wrap">
+     <!-- <div class="customizer-wrap">
         <div class="customizer-links">
             <i data-feather="settings"></i>
         </div>
@@ -911,7 +910,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- customizer end -->
 
     <!-- latest jquery-->
@@ -935,14 +934,15 @@
     <!-- Template js-->
     <script src="../assets/js/script.js"></script>
 
-    <!-- Customizer js-->
-    <script src="../assets/js/customizer.js"></script>
+    <!-- Customizer js
+    <script src="../assets/js/customizer.js"></script> -->
 
-    <!-- Color-picker js-->
-    <script src="../assets/js/color/single-property.js"></script>
+    <!-- Color-picker js
+    <script src="../assets/js/color/single-property.js"></script> -->
 
     <!-- Custom js -->
     <script src="../assets/js/myjs.js"></script>
+    <script src="../assets/js/myjs-frontend.js"></script>
 
 </body>
 

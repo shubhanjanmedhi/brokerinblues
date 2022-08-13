@@ -649,12 +649,21 @@
                                     <form class="row gx-3">
                                         <div class="form-group col-sm-4">
                                             <label>Property Type</label>
-                                            <input type="text" class="form-control" id="propertyType" placeholder="villa" required="">
+                                            <div class="dropdown">
+                                                <span class="dropdown-toggle font-rubik"
+                                                    data-bs-toggle="dropdown"><span>House</span> <i
+                                                        class="fas fa-angle-down"></i></span>
+                                                <div class="dropdown-menu text-start">
+                                                    <a class="dropdown-item" href="javascript:void(0)">Villa</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">House</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Apartment</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label>Property Status</label>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>For sale</span> <i class="fas fa-angle-down"></i></span>
+                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>For Rent</span> <i class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
                                                     <a class="dropdown-item" href="javascript:void(0)">For Rent</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">For Sale</a>
@@ -662,14 +671,21 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <label>Property Price ($)</label>
-                                            <input type="number" class="form-control" id="propertyPrice" placeholder="2800" required="">
+                                            <label>Featured</label>
+                                            <div class="dropdown">
+                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>No</span> <i class="fas fa-angle-down"></i></span>
+                                                <div class="dropdown-menu text-start">
+                                                    <a class="dropdown-item" href="javascript:void(0)">Yes</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">No</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label>Max Rooms</label>
                                             <div class="dropdown">
                                                 <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>1</span> <i class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
+                                                    <a class="dropdown-item" href="javascript:void(0)">1</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">2</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">3</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">4</a>
@@ -683,6 +699,7 @@
                                             <div class="dropdown">
                                                 <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>1</span> <i class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
+                                                    <a class="dropdown-item" href="javascript:void(0)">1</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">2</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">3</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">4</a>
@@ -696,6 +713,7 @@
                                             <div class="dropdown">
                                                 <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>1</span> <i class="fas fa-angle-down"></i></span>
                                                 <div class="dropdown-menu text-start">
+                                                    <a class="dropdown-item" href="javascript:void(0)">1</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">2</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">3</a>
                                                     <a class="dropdown-item" href="javascript:void(0)">4</a>
@@ -716,12 +734,9 @@
                                             <label>Agencies</label>
                                             <div class="dropdown">
                                                 <span class="dropdown-toggle font-rubik"
-                                                    data-bs-toggle="dropdown"><span>Premiere</span> <i
+                                                    data-bs-toggle="dropdown"><span>---Select---</span> <i
                                                         class="fas fa-angle-down"></i></span>
-                                                <div class="dropdown-menu text-start">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Blue Sky</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Zephyr</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Premiere</a>
+                                                <div class="dropdown-menu text-start" id="agencyElement">
                                                 </div>
                                             </div>
                                         </div>
@@ -740,36 +755,23 @@
                                     <form class="row gx-3">
                                         <div class="form-group col-sm-12">
                                             <label>Address</label>
-                                            <textarea class="form-control" id="address" placeholder="Address of your property" rows="4"></textarea>
+                                            <input type="text" class="form-control" id="address" placeholder="Address of your property">
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label>Country</label>
-                                            <div class="dropdown">
-                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Country</span> <i class="fas fa-angle-down"></i></span>
-                                                <div class="dropdown-menu text-start" id="countries">
-                                                    
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control" id="country" placeholder="country">
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label>City</label>
-                                            <div class="dropdown">
-                                                <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Amreli</span> <i class="fas fa-angle-down"></i></span>
-                                                <div class="dropdown-menu text-start">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Gandhinagar</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Bharuch</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Amreli</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Ahmadabad</a>
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control" id="city" placeholder="city">
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label>Zip code</label>
-                                            <input type="number" class="form-control" id="zipCode" placeholder="39702">
+                                            <input type="number" class="form-control" id="zipCode" placeholder="397002">
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label>Landmark</label>
-                                            <input type="text" class="form-control" id="landmark" placeholder="landmark place name">
+                                            <input type="text" class="form-control" id="landmark" placeholder="landmark">
                                         </div>
                                         <!-- <div class="col-sm-12">
                                             <iframe title="realestate location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583091352!2d-74.11976373946229!3d40.69766374859258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1563449626439!5m2!1sen!2sin"
@@ -785,40 +787,60 @@
                                     <h2>Gallery</h2>
                                     <p class="font-roboto">Add your property Media</p>
                                     <label>Media</label>
-                                    <form class="dropzone" id="multiFileUpload" action="/upload.php">
+                                    <!-- <form class="dropzone" id="multiFileUpload" action="/upload.php">
                                         <div class="dz-message needsclick"><i class="fas fa-cloud-upload-alt"></i>
                                         <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
                                         </div>
-                                    </form>
+                                    </form> -->
+                                    <input type="file" name="files" id="multiFileUpload" multiple>
                                     <form class="row gx-3">
                                             <div class="form-group col-sm-12">
                                                 <label>Video (mp4)</label>
-                                                <input type="text" class="form-control" placeholder="mp4 video link">
+                                                <input type="text" class="form-control" id="videoLink" placeholder="mp4 video link">
                                             </div>
                                             <div class="form-group col-sm-12">
                                                 <label>Additional features</label>
-                                                <div class="feature-checkbox">
+                                                <div class="additional-checkbox">
                                                     <label for="chk-ani">
-                                                        <input class="checkbox_animated color-2" id="chk-ani" type="checkbox"> Emergency Exit
+                                                        <input class="checkbox_animated color-4" id="chk-ani" type="checkbox"> Emergency Exit
                                                     </label>
                                                     <label for="chk-ani1">
-                                                        <input class="checkbox_animated color-2" id="chk-ani1" type="checkbox"> CCTV
+                                                        <input class="checkbox_animated color-4" id="chk-ani1" type="checkbox"> CCTV
                                                     </label>
                                                     <label for="chk-ani2">
-                                                        <input class="checkbox_animated color-2" id="chk-ani2" type="checkbox"> Free Wi-Fi
+                                                        <input class="checkbox_animated color-4" id="chk-ani2" type="checkbox" > Free Wi-Fi
                                                     </label>
                                                     <label for="chk-ani3">
-                                                        <input class="checkbox_animated color-2" id="chk-ani3" type="checkbox">  Free Parking In The Area
+                                                        <input class="checkbox_animated color-4" id="chk-ani3" type="checkbox">  Free Parking In The Area
                                                     </label>
                                                     <label for="chk-ani4">
-                                                        <input class="checkbox_animated color-2" id="chk-ani4" type="checkbox">  Air Conditioning
+                                                        <input class="checkbox_animated color-4" id="chk-ani4" type="checkbox">  Air Conditioning
+                                                    </label>
+                                                    <label for="chk-ani5">
+                                                        <input class="checkbox_animated color-4" id="chk-ani5" type="checkbox">  Security Guard
+                                                    </label>
+                                                    <label for="chk-ani6">
+                                                        <input class="checkbox_animated color-4" id="chk-ani6" type="checkbox" >  Terrace
+                                                    </label>
+                                                    <label for="chk-ani7">
+                                                        <input class="checkbox_animated color-4" id="chk-ani7" type="checkbox">  Laundry Service
+                                                    </label>
+                                                    <label for="chk-ani8">
+                                                        <input class="checkbox_animated color-4" id="chk-ani8" type="checkbox">  Elevator Lift
+                                                    </label>
+                                                    <label for="chk-ani9">
+                                                        <input class="checkbox_animated color-4" id="chk-ani9" type="checkbox" >  Balcony
                                                     </label>
                                                 </div>
                                             </div>
                                     </form>
                                     <div class="next-btn d-flex">
                                         <button type="button" class="btn btn-dashed color-2 prev2 btn-pill"><i class="fas fa-arrow-left me-2"></i> Previous</button>
-                                        <button type="button" class="btn btn-gradient color-2 next3 btn-pill">Submit <i class="fas fa-arrow-right ms-2"></i></button>
+                                        <div class="next3" id="confirm" style="display: none;"></div>
+                                        <div id="submitButton" class="btn btn-pill btn-gradient color-4">
+                                            <span id="submitSpinner" class="spinner-border spinner-border-sm" style="margin-right: 5px;display: none;"></span>
+                                            <span id="submitText">Submit</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="wizard-step-4 d-none">
@@ -1018,7 +1040,7 @@
     <!-- tap to top end -->
 
     <!-- customizer start -->
-    <div class="customizer-wrap">
+    <!-- <div class="customizer-wrap">
         <div class="customizer-links">
             <i data-feather="settings"></i>
         </div>
@@ -1066,7 +1088,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- customizer end -->
 
     <!-- latest jquery-->
@@ -1097,17 +1119,19 @@
     <!-- Template js-->
     <script src="../assets/js/script.js"></script>
 
-    <!-- Customizer js-->
-    <script src="../assets/js/customizer.js"></script>
+    <!-- Customizer js
+    <script src="../assets/js/customizer.js"></script> -->
 
     <!-- wow js-->
     <script src="../assets/js/wow.min.js"></script>
 
-    <!-- Color-picker js-->
-    <script src="../assets/js/color/template-color.js"></script>
+    <!-- Color-picker js
+    <script src="../assets/js/color/template-color.js"></script> -->
 
     <!-- Custom js -->
     <script src="../assets/js/myjs.js"></script>
+    <script src="../assets/js/myjs-frontend.js"></script>
+    <script src="../assets/js/agency.js"></script>
 
 </body>
 
