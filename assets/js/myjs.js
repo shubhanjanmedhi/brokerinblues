@@ -250,7 +250,7 @@ function editProperty(id){
         }else{
             submitText.innerText = 'Submit';
             submitSpinner.style.display = 'none';
-            //window.location.href = 'listing.html';
+            window.location.href = 'listing.html';
         }
     })
     .then(result => console.log(result))
@@ -620,7 +620,7 @@ function showAllAgencies(){
     var htmlElementVar = '';
 
     for(i=0; i<allProperties.length; i++){
-        htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 wow fadeInUp"><div class="property-box"><div class="agent-image"><div><img src="'+allProperties[i].media[0]+
+        htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 wow fadeInUp"><div class="property-box"><div class="agent-image"><div><img src="'+url+allProperties[i].media[0]+
             '" class="bg-img" alt=""><div class="agent-overlay"></div><div class="overlay-content"><ul><li><a href="tel:'+allProperties[i].phone+'"<i class="fas fa-phone-alt"></i></a></li><li><a href="mailto:'+
             allProperties[i].email+'"<i class="fas fa-envelope"></i></a></li></ul><span>Connect</span></div></div></div><div class="agent-content"><h3>'+allProperties[i].name+
             '</h3><ul class="agent-contact"><li><i class="fas fa-phone-alt"></i> <span class="character">'+allProperties[i].phone+'</span></li><li><i class="fas fa-envelope"></i> '+allProperties[i].email+

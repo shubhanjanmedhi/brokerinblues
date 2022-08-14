@@ -12,3 +12,34 @@
 .price-range input{
     max-width: 125px !important;
 }
+
+.banner-4.feat{
+    background-image: url(../images/inner.jpg) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    background-blend-mode: overlay !important;
+}
+
+.banner-4.real{
+    background-image: url(../images/home3.jpg) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    background-blend-mode: overlay !important;
+}
+
+.home-img-layout{
+    background-image: url(../images/home.jpg) !important;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    background-blend-mode: overlay !important;
+    width: 100% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    height: 100vh !important;
+    min-height: 900px !important;
+}
+
+.banner-4.offer{
+    background-image: url(../images/home1.jpg) !important;
+}
