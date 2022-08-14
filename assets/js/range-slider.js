@@ -9,11 +9,11 @@
           max: 50000,
           values: [ 2000, 6000 ],
           slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            $( "#amount" ).val( "₹" + ui.values[ 0 ] + " - ₹" + ui.values[ 1 ] );
           }
         });
-        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-          " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        $( "#amount" ).val( "₹" + $( "#slider-range" ).slider( "values", 0 ) +
+          " - ₹" + $( "#slider-range" ).slider( "values", 1 ) );
       } );
 
       $( function() {

@@ -391,7 +391,7 @@ function showAllProperties(recordsPerPage){
             allProperties[j].propertyStatus+'</span></div></div><div class="overlay-property-box"><a href=javascript:deleteProperty("'+allProperties[j]._id+'") class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete">'+
             '<i data-feather="trash-2"></i></a><a href="edit-property.html?'+allProperties[j]._id+'" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="Edit"><i data-feather="edit"></i></a></div></div>'+
             '<div class="property-details"><span class="font-roboto">'+allProperties[j].city+'</span><a href="../main/single-property.html?'+allProperties[j]._id+'"><h3>'+allProperties[j].propertyType+' '+allProperties[j].propertyStatus+
-            '</h3></a><h6>$'+allProperties[j].price+'</h6><p class="font-roboto light-font">'+allProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
+            '</h3></a><h6>₹'+allProperties[j].price+'</h6><p class="font-roboto light-font">'+allProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
             allProperties[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allProperties[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
             allProperties[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick=details("'+allProperties[j]._id+'") class="btn btn-dashed btn-pill color-2">Details</button>'+
             '</div></div></div></div>';
@@ -518,7 +518,7 @@ function showAllTrash(recordsPerPage){
             allProperties[j].propertyStatus+'</span></div></div><div class="overlay-property-box"><a href=javascript:restoreProperty("'+allProperties[j]._id+'") class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete">'+
             '<i data-feather="upload-cloud"></i></a><a href="edit-property.html?'+allProperties[j]._id+'" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="Edit"><i data-feather="edit"></i></a></div></div>'+
             '<div class="property-details"><span class="font-roboto">'+allProperties[j].city+'</span><a href="../main/single-property.html?'+allProperties[j]._id+'"><h3>'+allProperties[j].propertyType+' '+allProperties[j].propertyStatus+
-            '</h3></a><h6>$'+allProperties[j].price+'</h6><p class="font-roboto light-font">'+allProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
+            '</h3></a><h6>₹'+allProperties[j].price+'</h6><p class="font-roboto light-font">'+allProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
             allProperties[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allProperties[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
             allProperties[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick=details("'+allProperties[j]._id+'") class="btn btn-dashed btn-pill color-2">Details</button>'+
             '</div></div></div></div>';
