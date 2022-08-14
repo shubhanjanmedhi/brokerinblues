@@ -200,6 +200,9 @@ function addPropertyFrontend(){
     var elevatorCheckbox = document.getElementById('chk-ani8').checked;
     var balconyCheckbox = document.getElementById('chk-ani9').checked;
 
+    propertyStatus = propertyStatus.trim();
+    featured = featured.trim();
+
     var agencyId = $('.dropdown-toggle').dropdown()[6].innerHTML;
     agencyId = agencyId.split('"')[1];
 
