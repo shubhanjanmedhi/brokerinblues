@@ -7,7 +7,7 @@
           range: true,
           min: 0,
           max: 50000,
-          values: [ 5000, 15000 ],
+          values: [ 2000, 6000 ],
           slide: function( event, ui ) {
             $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
           }
@@ -20,8 +20,8 @@
         $( "#slider-range1" ).slider({
           range: true,
           min: 0,
-          max: 30000,
-          values: [ 5000, 15000 ],
+          max: 10000,
+          values: [ 100, 2000 ],
           slide: function( event, ui ) {
             $( "#amount1" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] + " sq ft"  );
           }

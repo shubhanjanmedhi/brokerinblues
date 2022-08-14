@@ -30,7 +30,7 @@ function showAllAgency(){
     var htmlElementVar = '';
 
     for(i=0; i<allAgencies.length; i++){
-        htmlElementVar =  htmlElementVar+'<a class="dropdown-item" href="javascript:void(0)">'+allAgencies[i].name+'</a>';
+        htmlElementVar =  htmlElementVar+'<a class="dropdown-item" href="javascript:void(0)" id="'+allAgencies[i]._id+'">'+allAgencies[i].name+'</a>';
     }
 
     htmlElement.innerHTML = htmlElementVar;

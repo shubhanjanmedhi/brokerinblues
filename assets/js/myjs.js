@@ -7,6 +7,7 @@ var allPropertiesCount = 0;
 var currentCount = 0;
 var singleProperty;
 var singleAgency;
+var userId;
 const url = 'https://as-brokerinblues.herokuapp.com';
 
 if(window.location.pathname.includes('add-property')){
@@ -41,7 +42,7 @@ if(window.location.pathname.includes('edit-agent')){
     }
 }
 
-if(window.location.pathname.includes('back-end/edit')){
+if(window.location.pathname.includes('back-end/edit') ||  window.location.pathname.includes('back-end/add')){
     document.getElementById('multiFileUpload').onclick = function(){
         var script8 = document.createElement('script');
         script8.src = '../assets/js/bootstrap.bundle.min.js';
@@ -84,6 +85,9 @@ function addProperty(){
     var elevatorCheckbox = document.getElementById('chk-ani8').checked;
     var balconyCheckbox = document.getElementById('chk-ani9').checked;
 
+    var agencyId = $('.dropdown-toggle').dropdown()[6].innerHTML;
+    agencyId = agencyId.split('"')[1];
+
     var submitText = document.getElementById('submitText');
     var submitSpinner = document.getElementById('submitSpinner');
 
@@ -102,6 +106,7 @@ function addProperty(){
     formdata.append("area", area);
     formdata.append("price", price);
     formdata.append("agencies", agencies);
+    formdata.append("agencyId", agencyId);
     formdata.append("description", description);
     formdata.append("address", address);
     formdata.append("country", country);
@@ -180,6 +185,13 @@ function editProperty(id){
     var elevatorCheckbox = document.getElementById('chk-ani8').checked;
     var balconyCheckbox = document.getElementById('chk-ani9').checked;
 
+    var agencyId = $('.dropdown-toggle').dropdown()[6].innerHTML;
+    agencyId = agencyId.split('"')[1];
+
+    if(agencyId != 'agenc'){
+        formdata.append("agencyId", agencyId);
+    }
+
     var submitText = document.getElementById('submitText');
     var submitSpinner = document.getElementById('submitSpinner');
 
@@ -197,7 +209,7 @@ function editProperty(id){
     formdata.append("beds", beds);
     formdata.append("baths", baths);
     formdata.append("area", area);
-    formdata.append("price", price);
+    formdata.append("price", price); 
     formdata.append("agencies", agencies);
     formdata.append("description", description);
     formdata.append("address", address);
@@ -238,7 +250,7 @@ function editProperty(id){
         }else{
             submitText.innerText = 'Submit';
             submitSpinner.style.display = 'none';
-            window.location.href = 'listing.html';
+            //window.location.href = 'listing.html';
         }
     })
     .then(result => console.log(result))
@@ -286,7 +298,12 @@ function getProperty(id){
             else{
                 var res = JSON.parse(http.response)
                 singleProperty = res.data;
-                populateProperty();
+                if(window.location.pathname.includes('single-property')){
+                    userId = id;
+                    showAgency(singleProperty.agencyId);
+                }else{
+                    populateProperty();
+                }
             }
         }
     }catch(e){
@@ -381,7 +398,11 @@ function showAllProperties(recordsPerPage){
 
     htmlElement.innerHTML = htmlElementVar;
     htmlPagination.innerHTML = '<ul class="pagination">'+paginationElements+'</ul>';
-    loadScript();
+    if(window.location.pathname.includes('main')){
+        loadFrontEndScript();
+    }else{
+        loadScript();
+    }
 }
 
 function details(id){
@@ -603,7 +624,7 @@ function showAllAgencies(){
             '" class="bg-img" alt=""><div class="agent-overlay"></div><div class="overlay-content"><ul><li><a href="tel:'+allProperties[i].phone+'"<i class="fas fa-phone-alt"></i></a></li><li><a href="mailto:'+
             allProperties[i].email+'"<i class="fas fa-envelope"></i></a></li></ul><span>Connect</span></div></div></div><div class="agent-content"><h3>'+allProperties[i].name+
             '</h3><ul class="agent-contact"><li><i class="fas fa-phone-alt"></i> <span class="character">'+allProperties[i].phone+'</span></li><li><i class="fas fa-envelope"></i> '+allProperties[i].email+
-            '</li></ul><a href="edit-agent.html?'+allProperties[i]._id+'">Edit Agency <i class="fas fa-arrow-right"></i></a><a href=javascript:deleteAgency("'+allProperties[i]._id+'")>Delete Agency <i class="fas fa-arrow-right"></i></a></div></div></div>';
+            '</li></ul><!--a href="edit-agent.html?'+allProperties[i]._id+'">Edit Agency <i class="fas fa-arrow-right"></i></a--><a href=javascript:deleteAgency("'+allProperties[i]._id+'")>Delete Agency <i class="fas fa-arrow-right"></i></a></div></div></div>';
     }
 
     htmlElement.innerHTML = htmlElementVar;
@@ -627,7 +648,11 @@ function showAgency(id){
             else{
                 var res = JSON.parse(http.response)
                 singleAgency = res.data;
-                populateAgency();
+                if(window.location.pathname.includes('main')){
+                    showSingleProperty(userId);
+                }else{
+                    populateAgency();
+                }
             }
         }
     }catch(e){

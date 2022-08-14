@@ -49,14 +49,14 @@
     <!-- Loader end -->
 
     <!-- header start -->
-    <header class="inner-page light-header">
+    <header class="inner-page">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="menu">
                         <div class="brand-logo">
                             <a href="index.html">
-                                <img src="../assets/images/logo/4.png" alt="" class="img-fluid">
+                                <img src="../assets/images/logo/2.png" alt="" class="img-fluid">
                             </a>
                         </div>
                         <nav>
@@ -487,9 +487,9 @@
                             </div>
                         </nav>
                         <ul class="header-right">
-                            <li class="right-menu color-6">
-                                <ul class="nav-menu">
-                                    <!-- <li class="dropdown language">
+                            <li class="right-menu">
+                                <!-- <ul class="nav-menu">
+                                    <li class="dropdown language">
                                         <a href="javascript:void(0)">
                                             <i data-feather="globe"></i>
                                         </a>
@@ -499,13 +499,13 @@
                                             <li><a href="javascript:void(0)">Arabic</a></li>
                                             <li><a href="javascript:void(0)">Spanish</a></li>
                                         </ul>
-                                    </li> -->
-                                    <!-- <li class="dropdown">
+                                    </li>
+                                    <li class="dropdown">
                                         <a href="user-favourites.html">
                                             <i data-feather="heart"></i>
                                         </a>
-                                    </li> -->
-                                    <!-- <li class="dropdown cart">
+                                    </li>
+                                    <li class="dropdown cart">
                                         <a href="javascript:void(0)">
                                             <i data-feather="shopping-cart"></i>
                                         </a>
@@ -540,8 +540,8 @@
                                                 </div>
                                             </li>
                                         </ul>
-                                    </li> -->
-                                    <!-- <li class="dropdown currency">
+                                    </li>
+                                    <li class="dropdown currency">
                                         <a href="javascript:void(0)">
                                             <i data-feather="dollar-sign"></i>
                                         </a>
@@ -551,13 +551,13 @@
                                             <li><a href="javascript:void(0)">Pound</a></li>
                                             <li><a href="javascript:void(0)">Yuan</a></li>
                                         </ul>
-                                    </li> -->
-                                    <!-- <li class="dropdown">
+                                    </li>
+                                    <li class="dropdown">
                                         <a href="login.html">
                                             <i data-feather="user"></i>
                                         </a>
-                                    </li> -->
-                                </ul>
+                                    </li>
+                                </ul> -->
                             </li>
                         </ul>
                     </div>
@@ -568,31 +568,18 @@
     <!--  header end -->
 
     <!-- slider section start -->
-    <section class="p-0 ratio3_2">
-        <div class="container-fluid">
-            <div class="zoom-image-box zoom-gallery-multiple">
-                <div class="row">
-                    <div class="col-md-6 p-0">
-                        <a href="../assets/images/property/4.jpg">
-                            <img src="../assets/images/property/4.jpg" class="bg-img" alt="">
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-6 p-0">
-                        <a href="../assets/images/property/2.jpg">
-                            <img src="../assets/images/property/2.jpg" class="bg-img" alt="">
-                        </a>
-                        <a href="../assets/images/property/1.jpg">
-                            <img src="../assets/images/property/1.jpg" class="bg-img" alt="">
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-6 p-0">
-                        <a href="../assets/images/property/5.jpg">
-                            <img src="../assets/images/property/5.jpg" class="bg-img" alt="">
-                        </a>
-                        <a href="../assets/images/property/3.jpg">
-                            <img src="../assets/images/property/3.jpg" class="bg-img" alt="">
-                        </a>
-                    </div>
+    <section class="breadcrumb-section p-0">
+        <img src="../assets/images/inner-background.jpg" class="bg-img img-fluid" alt="">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <div>
+                    <h2 id="pName">Single</h2>
+                    <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" id="pName1" aria-current="page">Contact us</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -606,47 +593,35 @@
                 <div class="single-title">
                     <div class="left-single">
                         <div class="d-flex">
-                            <h2 class="mb-0">Orchard House </h2>
-                            <span><span class="label label-shadow ms-2">For
+                            <h2 id="propType" class="mb-0">Orchard House </h2>
+                            <span><span id="propStatus" class="label label-shadow ms-2">For
                                     Sale</span></span>
                         </div>
-                        <p class="mt-1">Mina Road, Bur Dubai, Dubai, United
+                        <p id="cityCountry" class="mt-1">Mina Road, Bur Dubai, Dubai, United
                             Arab
                             Emirates</p>
                         <ul>
                             <li>
                                 <div>
                                     <img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">
-                                    <span>4 Bedrooms</span>
+                                    <span id="bedrooms">4 Bedrooms</span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">
-                                    <span>4 Bathrooms</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <img src="../assets/images/svg/icon/sofa.svg" class="img-fluid" alt="">
-                                    <span>2 Halls</span>
+                                    <span id="bathrooms">4 Bathrooms</span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">
-                                    <span>5000 Sq ft</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <img src="../assets/images/svg/icon/garage.svg" class="img-fluid" alt="">
-                                    <span>1 Garage</span>
+                                    <span id="areaSqFt">5000 Sq ft</span>
                                 </div>
                             </li>
                         </ul>
                         <div class="share-buttons">
-                            <div class="d-inline-block">
+                            <!-- <div class="d-inline-block">
                                 <a href="javascript:void(0)" class="btn btn-gradient btn-pill color-2"><i class="far fa-share-square"></i>
                                     share
                                 </a>
@@ -663,7 +638,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <a href="javascript:void(0)" class="btn btn-dashed btn-pill color-2 ms-md-2 ms-1 save-btn"><i class="far fa-heart"></i>
                                 Save</a> -->
                             <a href="javascript:void(0)" class="btn btn-dashed btn-pill color-2 ms-md-2 ms-1" onclick="myFunction()"><i data-feather="printer"></i>
@@ -678,7 +653,7 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div> -->
-                        <h2 class="price">$20,45,472</h2>
+                        <h2 class="price" id="Propertyprice">$20,45,472</h2>
                         <!-- <div class="feature-label">
                             <span class="btn btn-dashed color-2 btn-pill">Wi-fi</span>
                             <span class="btn btn-dashed color-2 ms-1 btn-pill">Swimming Pool</span>
@@ -707,204 +682,13 @@
                                             href="#gallery">gallery</a></li>
                                     <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#video">video</a>
                                     </li>
-                                    <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#floor_plan">Floor
-                                            plan</a></li>
-                                    <li class="nav-item"><a data-bs-toggle="tab" class="nav-link"
-                                            href="#location-map">location</a></li>
                                 </ul>
                                 <div class=" tab-content" id="top-tabContent">
                                     <div class="tab-pane fade show active about page-section" id="about">
-                                        <h4 class="content-title">Property Details
-                                            <a href="https://www.google.com/maps/place/New+York,+NY,+USA/@40.697488,-73.979681,8z/data=!4m5!3m4!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62!8m2!3d40.7127753!4d-74.0059728?hl=en"
-                                                target="_blank">
-                                                <i class="fa fa-map-marker-alt"></i> view on map</a>
-                                        </h4>
-                                        <div class="row">
-                                            <div class="col-md-6 col-xl-4">
-                                                <ul class="property-list-details">
-                                                    <li><span>Property Type :</span> House</li>
-                                                    <li><span>Property ID :</span> ZOEA245</li>
-                                                    <li><span>Property status :</span> For sale</li>
-                                                    <li><span>Operating Since :</span> 2008</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-6 col-xl-4">
-                                                <ul class="property-list-details">
-                                                    <li><span>Price :</span> $ 1,50,000</li>
-                                                    <li><span>Property Size :</span> 1730 sq / ft</li>
-                                                    <li><span>Balcony :</span> 2</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-6 col-xl-4">
-                                                <ul class="property-list-details">
-                                                    <li><span>City :</span> Newyork</li>
-                                                    <li><span>Bedrooms :</span> 8</li>
-                                                    <li><span>Bathrooms :</span> 4</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h4 class="content-title mt-4">Attachments</h4>
-                                        <a href="javascript:void(0)" class="attach-file"><i class="far fa-file-pdf"></i>Demo Property
-                                            Document </a>
-                                        <h4 class="mt-4">Property Brief</h4>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <p class="font-roboto">Residences can be classified by and how they are connected residences and land. Different types 
-                                                    of housing tenure can be used for the same physical type.</p>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <p class="font-roboto">Connected residences owned by a single entity leased out, or owned separately with an agreement covering the relationship between units and common areas.</p>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <p class="font-roboto">Residential real estate may contain either a single family or multifamily structure that is available for occupation or 
-                                                    for non-business purposes.</p>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="tab-pane fade page-section" id="feature">
-                                        <h4 class="content-title">features</h4>
-                                        <div class="single-feature row">
-                                            <div class="col-xl-3 col-6">
-                                                <ul>
-                                                    <li>
-                                                        <i class="fas fa-wifi"></i> Free Wi-Fi
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-hands"></i> Elevator Lift
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-power-off"></i> Power Backup
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-monument"></i> Laundry Service
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-3 col-6">
-                                                <ul>
-                                                    <li>
-                                                        <i class="fas fa-user-shield"></i> Security Guard
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-video"></i> CCTV
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-door-open"></i> Emergency Exit
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-first-aid"></i> Doctor On Call
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-3 col-6">
-                                                <ul>
-                                                    <li>
-                                                        <i class="fas fa-shower"></i> Shower
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-car"></i> free Parking in the area
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-fan"></i> Air Conditioning
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="tab-pane fade page-section ratio3_2" id="gallery">
-                                        <h4 class="content-title">gallery</h4>
-                                        <div class="single-gallery">
-                                            <div class="gallery-for">
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/4.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/3.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/14.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/11.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/12.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/4.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/3.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/11.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="bg-size">
-                                                        <img src="../assets/images/property/12.jpg" class="bg-img"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gallery-nav">
-                                                <div>
-                                                    <img src="../assets/images/property/4.jpg" class="img-fluid" alt="">
-                                                </div>
-                                                <div>
-                                                    <img src="../assets/images/property/3.jpg" class="img-fluid" alt="">
-                                                </div>
-                                                <div>
-                                                    <img src="../assets/images/property/14.jpg" class="img-fluid"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <img src="../assets/images/property/11.jpg" class="img-fluid"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <img src="../assets/images/property/12.jpg" class="img-fluid"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <img src="../assets/images/property/4.jpg" class="img-fluid" alt="">
-                                                </div>
-                                                <div>
-                                                    <img src="../assets/images/property/3.jpg" class="img-fluid" alt="">
-                                                </div>
-                                                <div>
-                                                    <img src="../assets/images/property/11.jpg" class="img-fluid"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <img src="../assets/images/property/12.jpg" class="img-fluid"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="tab-pane fade page-section ratio_40" id="video">
                                         <h4 class="content-title">video</h4>
@@ -919,16 +703,6 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade page-section" id="floor_plan">
-                                        <h4 class="content-title">Floor plan</h4>
-                                        <img src="../assets/images/single-property/floor-plan.png" alt=""
-                                            class="img-fluid">
-                                    </div>
-                                    <div class="tab-pane fade page-section" id="location-map">
-                                        <h4 class="content-title">location</h4>
-                                        <iframe title="realestate location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583091352!2d-74.11976373946229!3d40.69766374859258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1563449626439!5m2!1sen!2sin"
-                                            allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -1009,13 +783,13 @@
                         </div>
                     </div>
                     <div class="property-section p-t-40">
-                        <div class="title-3 text-start inner-title">
+                        <!-- <div class="title-3 text-start inner-title">
                             <h2>Related Properties</h2>
-                        </div>
+                        </div> -->
                         <div class="row ratio_65">
                             <div class="col-12 property-grid-2">
                                 <div class="property-2 row column-sm zoom-gallery property-label property-grid">
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="property-box">
                                             <div class="property-image">
                                                 <div class="property-slider">
@@ -1040,7 +814,7 @@
                                                         <span class="label label-shadow">SALE</span>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="seen-data">
+                                                <div class="seen-data">
                                                     <i data-feather="camera"></i>
                                                     <span>25</span>
                                                 </div>                  -->
@@ -1051,7 +825,7 @@
                                                     <a href="user-favourites.html" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="wishlist">
                                                         <i data-feather="heart"></i>                                                                               
                                                     </a>
-                                                </div> -->
+                                                </div>
                                             </div>
             
                                             <div class="property-details">
@@ -1072,7 +846,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- <div class="col-md-6">
                                         <div class="property-box">
                                             <div class="property-image">
@@ -1258,15 +1032,15 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="left-sidebar sticky-cls single-sidebar">
                         <div class="filter-cards">
-                            <div class="advance-card">
+                            <div class="advance-card" id="agencyInfo">
                                 <h6>Contact Info</h6>
                                 <div class="category-property">
                                     <div class="agent-info">
                                         <div class="media">
-                                            <img src="../assets/images/testimonial/3.png" class="img-50" alt="">
+                                            <img id="agtMedia" src="../assets/images/testimonial/3.png" class="img-50" alt="">
                                             <div class="media-body ms-2">
-                                                <h6>Jonathan Scott</h6>
-                                                <p>Contact@gmail.com</p>
+                                                <h6 id="agtName">Jonathan Scott</h6>
+                                                <p id="agtEmail">Contact@gmail.com</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1274,8 +1048,7 @@
                                         <!-- <li>
                                             <i data-feather="map-pin" class="me-2"></i>A-32, Albany, Newyork.
                                         </li> -->
-                                        <li>
-                                            <i data-feather="phone-call" class="me-2"></i>(+066) 518 - 457 - 5181
+                                        <li id="agtPhn">
                                         </li>
                                     </ul>
                                 </div>
@@ -1285,10 +1058,10 @@
                                 <div class="category-property">
                                     <form>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Your Name" required>
+                                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required="">
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email Address" required>
+                                            <input type="email" id="email" class="form-control" placeholder="email address" required="">
                                         </div>
                                         <div class="form-group">
                                             <input 
@@ -1296,17 +1069,16 @@
                                             class="form-control" 
                                             name="mobnumber" 
                                             id="tbNumbers" 
-                                            oninput="maxLengthCheck(this)"
                                             type = "tel"
-                                            onkeypress="javascript:return isNumber(event)"
-                                            maxlength = "9"
                                             required="">
                                         </div>
                                         <div class="form-group">
-                                            <textarea placeholder="Message" class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="3"></textarea>
                                         </div>
-                                        <button type="submit" onclick="document.location='user-listing.html'" class="btn btn-gradient color-2 btn-block btn-pill">Submit
-                                            Request</button>
+                                        <div id="submitButton" class="btn btn-pill btn-gradient color-2">
+                                            <span id="submitSpinner" class="spinner-border spinner-border-sm" style="margin-right: 5px;display: none;"></span>
+                                            <span id="submitText">Send Your Message</span>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -1537,7 +1309,7 @@
                             </h5>
                             <div class="footer-content">
                                 <a href="index.html">
-                                    <img src="../assets/images/logo/6.png" alt="" class="img-fluid">
+                                    <img src="../assets/images/logo/6.png" alt="" width="50%" class="img-fluid">
                                 </a>
                                 <p>This home provides entertaining spaces with a kitchen opening...</p>
                                 <div class="footer-contact">
@@ -1562,9 +1334,9 @@
                                 <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
                             </h5>
                             <ul class="footer-content">
-                                <li>
+                                <!-- <li>
                                     <a href="about-us.html">About us</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="listings.html">Listing</a>
                                 </li>
@@ -1699,7 +1471,7 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">×</span></button>
-                    <iframe title="realestate" src="https://www.youtube.com/embed/Sz_1tkcU0Co" allowfullscreen></iframe>
+                    <iframe title="realestate" id="vid" src="https://www.youtube.com/embed/Sz_1tkcU0Co" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -1715,7 +1487,7 @@
     <!-- tap to top end -->
 
     <!-- customizer start -->
-    <div class="customizer-wrap">
+    <!-- <div class="customizer-wrap">
         <div class="customizer-links">
             <i data-feather="settings"></i>
         </div>
@@ -1763,7 +1535,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- customizer end -->
 
     <!-- latest jquery-->
@@ -1803,14 +1575,15 @@
     <!-- Template js-->
     <script src="../assets/js/script.js"></script>
 
-    <!-- Customizer js-->
+    <!-- Customizer js
     <script src="../assets/js/customizer.js"></script>
 
-    <!-- Color-picker js-->
-    <script src="../assets/js/color/single-property2.js"></script>
+    Color-picker js
+    <script src="../assets/js/color/single-property2.js"></script> -->
 
     <!-- Custom js -->
     <script src="../assets/js/myjs.js"></script>
+    <script src="../assets/js/myjs-frontend.js"></script>
 
 </body>
 

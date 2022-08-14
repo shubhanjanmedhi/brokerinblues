@@ -86,7 +86,9 @@
     $(".dropdown-menu a").on('click', function() {
         var a = $(this).closest("a");
         var getSampling = a.text();
+        var getId = a.attr('id');
         $(this).closest(".dropdown-menu").prev('.dropdown-toggle').find('span').text(getSampling);
+        $(this).closest(".dropdown-menu").prev('.dropdown-toggle').find('span').attr('id',getId);
     });
 
     $(".mobile-search").on('click', function(){
