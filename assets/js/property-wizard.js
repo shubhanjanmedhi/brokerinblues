@@ -56,6 +56,7 @@
       });
 
       $(".step-again").on('click', function() {
+         window.location.reload();
         $('.step-1').addClass('active').removeClass('disabled');
         $('.step-2, .step-3, .step-4').removeClass('active').removeClass('disabled');
         $('.wizard-step-2, .wizard-step-3, .wizard-step-4').removeClass('d-block').addClass('d-none');

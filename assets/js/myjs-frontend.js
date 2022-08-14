@@ -200,6 +200,9 @@ function addPropertyFrontend(){
     var elevatorCheckbox = document.getElementById('chk-ani8').checked;
     var balconyCheckbox = document.getElementById('chk-ani9').checked;
 
+    var agencyId = $('.dropdown-toggle').dropdown()[6].innerHTML;
+    agencyId = agencyId.split('"')[1];
+
     var submitText = document.getElementById('submitText');
     var submitSpinner = document.getElementById('submitSpinner');
 
@@ -218,6 +221,7 @@ function addPropertyFrontend(){
     formdata.append("area", area);
     formdata.append("price", price);
     formdata.append("agencies", agencies);
+    formdata.append("agencyId", agencyId);
     formdata.append("description", description);
     formdata.append("address", address);
     formdata.append("country", country);
