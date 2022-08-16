@@ -634,6 +634,7 @@ function showAllAgencies(){
     }
 
     htmlElement.innerHTML = htmlElementVar;
+
     loadScript();
 }
 
@@ -674,6 +675,8 @@ function addAgency(){
     var name = document.getElementById('name').value;
     var phone = document.getElementById('phone').value;
     var email = document.getElementById('email').value;
+    var description = document.getElementById('description').value;
+    var designation = document.getElementById('designation').value;
 
     var submitText = document.getElementById('submitText');
     var submitSpinner = document.getElementById('submitSpinner');
@@ -687,6 +690,8 @@ function addAgency(){
     formdata.append("name", name);
     formdata.append("phone", phone);
     formdata.append("email", email);
+    formdata.append("description", description);
+    formdata.append("designation", designation);
     
     if(totalFiles > 0){
         for (i = 0; i < totalFiles; i++) {
@@ -725,6 +730,8 @@ function editAgency(id){
     var name = document.getElementById('name').value;
     var phone = document.getElementById('phone').value;
     var email = document.getElementById('email').value;
+    var description = document.getElementById('description').value;
+    var designation = document.getElementById('designation').value;
 
     var submitText = document.getElementById('submitText');
     var submitSpinner = document.getElementById('submitSpinner');
@@ -739,6 +746,8 @@ function editAgency(id){
     formdata.append("name", name);
     formdata.append("phone", phone);
     formdata.append("email", email);
+    formdata.append("description", description);
+    formdata.append("designation", designation);
 
     if(totalFiles > 0){
         for (i = 0; i < totalFiles; i++) {

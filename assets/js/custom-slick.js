@@ -225,7 +225,7 @@ $(document).ready(function(){
 
     $('.about-1').slick({
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
         arrows: true,
         slidesToShow: 2,

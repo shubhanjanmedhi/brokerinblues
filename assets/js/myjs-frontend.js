@@ -20,6 +20,7 @@ function validate3(){
 
 //Add property page wizard validation ends (client side)
 
+var allNewHomes;
 var allSales;
 var allRent;
 var allFeatured;
@@ -167,7 +168,16 @@ function showAgentsFrontend(){
             allAgencies[i].email+'</span><br/><span class="font-roboto"><i data-feather="phone" class="me-1"></i>'+allAgencies[i].phone+'</span></div></div></div></div>';
     }
 
-    htmlElement.innerHTML = htmlElementVar;
+    //htmlElement.innerHTML = htmlElementVar;
+
+    for (i=0; i<allAgencies.length; i++){
+        document.getElementById('agentImg'+(i+1)).src = url+allAgencies[i].media[0];
+        document.getElementById('agentEmail'+(i+1)).href = 'mailto:'+allAgencies[i].email;
+        document.getElementById('agentPhone'+(i+1)).href = 'tel:'+allAgencies[i].phone;
+        document.getElementById('agentName'+(i+1)).innerText = allAgencies[i].name;
+        document.getElementById('agentDesg'+(i+1)).innerText = allAgencies[i].designation;
+        document.getElementById('agentDesc'+(i+1)).innerText = allAgencies[i].description;
+    }
 
     loadFrontEndScript();
 }
@@ -271,6 +281,52 @@ function addPropertyFrontend(){
     );
 }
 
+function showNewHomes(currentPage,recordsPerPage){
+    const http = new XMLHttpRequest();
+    try{
+        http.open('GET',url+'/v1/properties/forsalelist?currentpage='+currentPage+'&recordsPerPage='+recordsPerPage);
+        http.setRequestHeader('Content-type', 'application/json');
+        http.send();
+        http.onload = function(){
+            if(http.status != 200 && http.status != 201){
+                console.log('API status: '+http.status);
+            }
+            else{
+                var res = JSON.parse(http.response);
+                allNewHomes = res.data;
+                showAllNewHomes();
+            }
+        }
+    }catch(e){
+        console.log(e);
+    }
+}
+
+function showAllNewHomes(){
+
+    var htmlElement = document.getElementById('htmlElement');
+    var htmlElementVar = '';
+
+    for(j=0; j<allNewHomes.length; j++){
+        var imagesElement = '';
+
+        for(i=0; i<allNewHomes[j].media.length; i++){
+            imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allNewHomes[j].media[i]+'" class="bg-img" alt=""></a>';
+        }
+
+        htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
+            imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">New</span></div></div><div class="overlay-property-box"></div></div>'+
+            '<div class="property-details"><span class="font-roboto">'+allNewHomes[j].city+'</span><a href="../main/single-property.html?'+allNewHomes[j]._id+'"><h3>'+allNewHomes[j].propertyType+' '+allNewHomes[j].propertyStatus+
+            '</h3></a><h6>₹'+allNewHomes[j].price+'</h6><p class="font-roboto light-font">'+allNewHomes[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
+            allNewHomes[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allNewHomes[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
+            allNewHomes[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick=details("'+allNewHomes[j]._id+'") class="btn btn-dashed btn-pill color-2">Details</button>'+
+            '</div></div></div></div>';
+    }
+
+    htmlElement.innerHTML = htmlElementVar;
+    loadFrontEndScript();
+}
+
 function showForSale(currentPage,recordsPerPage){
     const http = new XMLHttpRequest();
     try{
@@ -293,15 +349,38 @@ function showForSale(currentPage,recordsPerPage){
 }
 
 function showAllForSale(){
-    var htmlElement = document.getElementById('saleElement');
-    var htmlElementVar = '';
+    if(window.location.href.includes('for-sales')){
 
-    for(j=0; j<allSales.length; j++){
+        var htmlElement = document.getElementById('htmlElement');
+        var htmlElementVar = '';
 
-        htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 wow fadeInUp"> <div class="property-box"> <div class="property-image"> <a href="javascript:void(0)"> <img src="'+url+allSales[j].media[0]+'" class="bg-img" alt=""> <div class="labels-left"> <span class="label label-shadow">'+allSales[j].propertyStatus+
-            '</span> </div> </a> <div class="bottom-property"> <div class="d-flex"> <div> <h5><a href="single-property-6.html?'+allSales[j]._id+'">'+allSales[j].propertyType+' '+allSales[j].propertyStatus+'</a></h5> <h6>₹'+allSales[j].price+'</h6> </div> <button type="button" class="btn btn-gradient color-6 mt-3" onclick=details("'+allSales[j]._id+
-            '")>Details</button> </div> <div class="overlay-option"> <ul><li> <span>Rooms</span> <h6>'+allSales[j].maxRooms+'</h6> </li> <li> <span>Beds</span> <h6>'+allSales[j].beds+'</h6> </li> <li> <span>Baths</span> <h6>'+allSales[j].baths+'</h6> </li> <li> <span>Area</span> <h6>'+allSales[j].area+'ft<sup>2</sup></h6> </li> </ul> </div> </div> </div> </div> </div>';
+        for(j=0; j<allSales.length; j++){
+            var imagesElement = '';
 
+            for(i=0; i<allSales[j].media.length; i++){
+                imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allSales[j].media[i]+'" class="bg-img" alt=""></a>';
+            }
+
+            htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
+                imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">'+
+                allSales[j].propertyStatus+'</span></div></div><div class="overlay-property-box"></div></div>'+
+                '<div class="property-details"><span class="font-roboto">'+allSales[j].city+'</span><a href="../main/single-property.html?'+allSales[j]._id+'"><h3>'+allSales[j].propertyType+' '+allSales[j].propertyStatus+
+                '</h3></a><h6>₹'+allSales[j].price+'</h6><p class="font-roboto light-font">'+allSales[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
+                allSales[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allSales[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
+                allSales[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick=details("'+allSales[j]._id+'") class="btn btn-dashed btn-pill color-2">Details</button>'+
+                '</div></div></div></div>';
+        }
+    }else{
+        var htmlElement = document.getElementById('saleElement');
+        var htmlElementVar = '';
+
+        for(j=0; j<allSales.length; j++){
+
+            htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 wow fadeInUp"> <div class="property-box"> <div class="property-image"> <a href="javascript:void(0)"> <img src="'+url+allSales[j].media[0]+'" class="bg-img" alt=""> <div class="labels-left"> <span class="label label-shadow">'+allSales[j].propertyStatus+
+                '</span> </div> </a> <div class="bottom-property"> <div class="d-flex"> <div> <h5><a href="single-property-6.html?'+allSales[j]._id+'">'+allSales[j].propertyType+' '+allSales[j].propertyStatus+'</a></h5> <h6>₹'+allSales[j].price+'</h6> </div> <button type="button" class="btn btn-gradient color-6 mt-3" onclick=details("'+allSales[j]._id+
+                '")>Details</button> </div> <div class="overlay-option"> <ul><li> <span>Rooms</span> <h6>'+allSales[j].maxRooms+'</h6> </li> <li> <span>Beds</span> <h6>'+allSales[j].beds+'</h6> </li> <li> <span>Baths</span> <h6>'+allSales[j].baths+'</h6> </li> <li> <span>Area</span> <h6>'+allSales[j].area+'ft<sup>2</sup></h6> </li> </ul> </div> </div> </div> </div> </div>';
+    
+        }
     }
 
     htmlElement.innerHTML = htmlElementVar;
@@ -330,21 +409,44 @@ function showForRent(currentPage,recordsPerPage){
 }
 
 function showAllForRent(){
-    var htmlElement = document.getElementById('rentElement');
-    var htmlElementVar = '';
+    if (window.location.href.includes('for-rent')){
 
-    for(j=0; j<allRent.length; j++){
-        var imagesElement = '';
+        var htmlElement = document.getElementById('htmlElement');
+        var htmlElementVar = '';
 
-        // for(i=0; i<allRent[j].media.length; i++){
-            imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allRent[j].media[0]+'" class="bg-img" alt=""></a>';
-        // }
+        for(j=0; j<allRent.length; j++){
+            var imagesElement = '';
 
-        htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 wow fadeInUp"> <div class="property-box"> <div class="property-image"> <div class="property-slider color-6"> '+imagesElement+' </div> <div class="labels-left"> <div> <span class="label label-shadow">'+allRent[j].propertyStatus+'</span> </div> </div> </div> <div class="property-details"> <span class="font-roboto">'+allRent[j].city+
-            '</span> <a href="single-property.html?'+allRent[j]._id+'"> <h3>'+allRent[j].propertyType+' '+allRent[j].propertyStatus+'</h3> </a> <h6 class="color-6">₹'+allRent[j].price+'</h6> <p class="font-roboto">'+allRent[j].description+'</p> <ul> <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+allRent[j].beds+
-            '</li> <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allRent[j].baths+'</li> <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : '+allRent[j].area+'</li> </ul> <div class="property-btn d-flex"> <button type="button"  onclick=details("'+allRent[j]._id+
-            '") class="btn btn-dashed btn-pill color-6">Details</button> </div> </div> </div> </div>';
+            for(i=0; i<allRent[j].media.length; i++){
+                imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allRent[j].media[i]+'" class="bg-img" alt=""></a>';
+            }
 
+            htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
+                imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">'+
+                allRent[j].propertyStatus+'</span></div></div><div class="overlay-property-box"></div></div>'+
+                '<div class="property-details"><span class="font-roboto">'+allRent[j].city+'</span><a href="../main/single-property.html?'+allRent[j]._id+'"><h3>'+allRent[j].propertyType+' '+allRent[j].propertyStatus+
+                '</h3></a><h6>₹'+allRent[j].price+'</h6><p class="font-roboto light-font">'+allRent[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
+                allRent[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allRent[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
+                allRent[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick=details("'+allRent[j]._id+'") class="btn btn-dashed btn-pill color-2">Details</button>'+
+                '</div></div></div></div>';
+        }
+    }else{
+        var htmlElement = document.getElementById('rentElement');
+        var htmlElementVar = '';
+
+        for(j=0; j<allRent.length; j++){
+            var imagesElement = '';
+    
+            // for(i=0; i<allRent[j].media.length; i++){
+                imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+allRent[j].media[0]+'" class="bg-img" alt=""></a>';
+            // }
+    
+            htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 wow fadeInUp"> <div class="property-box"> <div class="property-image"> <div class="property-slider color-6"> '+imagesElement+' </div> <div class="labels-left"> <div> <span class="label label-shadow">'+allRent[j].propertyStatus+'</span> </div> </div> </div> <div class="property-details"> <span class="font-roboto">'+allRent[j].city+
+                '</span> <a href="single-property.html?'+allRent[j]._id+'"> <h3>'+allRent[j].propertyType+' '+allRent[j].propertyStatus+'</h3> </a> <h6 class="color-6">₹'+allRent[j].price+'</h6> <p class="font-roboto">'+allRent[j].description+'</p> <ul> <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+allRent[j].beds+
+                '</li> <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allRent[j].baths+'</li> <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : '+allRent[j].area+'</li> </ul> <div class="property-btn d-flex"> <button type="button"  onclick=details("'+allRent[j]._id+
+                '") class="btn btn-dashed btn-pill color-6">Details</button> </div> </div> </div> </div>';
+    
+        }
     }
 
     htmlElement.innerHTML = htmlElementVar;
@@ -385,7 +487,28 @@ function showAllFeatured(){
 
     }
 
-    htmlElement.innerHTML = htmlElementVar;
+    //htmlElement.innerHTML = htmlElementVar;
+    document.getElementById('featCity1').innerText = allFeatured[0].city;
+    document.getElementById('featUrl1').href = 'single-property.html?'+allFeatured[0]._id;
+    document.getElementById('featPName1').innerText = allFeatured[0].propertyType+' '+allFeatured[0].propertyStatus;
+    document.getElementById('featPrice1').innerText = allFeatured[0].price;
+    document.getElementById('featDesc1').innerText = allFeatured[0].description; 
+    document.getElementById('featBed1').innerText = 'Beds : '+allFeatured[0].beds;
+    document.getElementById('featBaths1').innerText = 'Baths : '+allFeatured[0].baths;
+    document.getElementById('featArea1').innerText = 'Sq Ft : '+allFeatured[0].area;
+    document.getElementById('featUrl1-1').href = 'single-property.html?'+allFeatured[0]._id;
+    document.getElementById('featimg1').src = url+allFeatured[0].media[0];
+
+    document.getElementById('featCity2').innerText = allFeatured[1].city;
+    document.getElementById('featUrl2').href = 'single-property.html?'+allFeatured[1]._id;
+    document.getElementById('featPName2').innerText = allFeatured[1].propertyType+' '+allFeatured[1].propertyStatus;
+    document.getElementById('featPrice2').innerText = allFeatured[1].price;
+    document.getElementById('featDesc2').innerText = allFeatured[1].description; 
+    document.getElementById('featBed2').innerText = 'Beds : '+allFeatured[1].beds;
+    document.getElementById('featBaths2').innerText = 'Baths : '+allFeatured[1].baths;
+    document.getElementById('featArea2').innerText = 'Sq Ft : '+allFeatured[1].area;
+    document.getElementById('featUrl2-1').href = 'single-property.html?'+allFeatured[1]._id;
+    document.getElementById('featimg2').src = url+allFeatured[1].media[0];
     loadFrontEndScript();
 }
 
