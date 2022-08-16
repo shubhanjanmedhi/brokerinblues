@@ -284,7 +284,7 @@ function addPropertyFrontend(){
 function showNewHomes(currentPage,recordsPerPage){
     const http = new XMLHttpRequest();
     try{
-        http.open('GET',url+'/v1/properties/forsalelist?currentpage='+currentPage+'&recordsPerPage='+recordsPerPage);
+        http.open('GET',url+'/v1/properties/latestlist?currentpage='+currentPage+'&recordsPerPage='+recordsPerPage);
         http.setRequestHeader('Content-type', 'application/json');
         http.send();
         http.onload = function(){
