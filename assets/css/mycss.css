@@ -43,3 +43,11 @@
 .banner-4.offer{
     background-image: url(../images/home1.jpg) !important;
 }
+
+#agentDesc1, #agentDesc2, #agentDesc3, #agentDesc4, #agentDesc5, #agentDesc6, #agentDesc7, #agentDesc8, #agentDesc9, #agentDesc10{
+    font-size: 11px !important;
+}
+
+#agentDesg1, #agentDesg2, #agentDesg3, #agentDesg4, #agentDesg5, #agentDesg6, #agentDesg7, #agentDesg8, #agentDesg9, #agentDesg10{
+    font-size: 14px !important;
+}
