@@ -51,3 +51,9 @@
 #agentDesg1, #agentDesg2, #agentDesg3, #agentDesg4, #agentDesg5, #agentDesg6, #agentDesg7, #agentDesg8, #agentDesg9, #agentDesg10{
     font-size: 14px !important;
 }
+
+.header-right{
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-left: auto !important;
+}

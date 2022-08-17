@@ -5,11 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sheltos - User property listing page">
-    <meta name="keywords" content="sheltos">
-    <meta name="author" content="sheltos">
+    <meta name="description" content="Broker in Blue">
+    <meta name="keywords" content="Broker in Blue">
+    <meta name="author" content="Broker in Blue">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
-    <title>Sheltos - User property listing page</title>
+    <title>Broker in Blue - Saved Listings</title>
 
    <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i"
@@ -18,8 +18,14 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
 
+    <!-- datepicker css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
+
     <!-- magnific css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
+
+    <!-- range slider css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery-ui.css">
 
     <!-- animate css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
@@ -27,6 +33,9 @@
     <!-- Template css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/color1.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/mycss.css">
 
 </head>
 
@@ -49,7 +58,7 @@
                 <div class="col">
                     <div class="menu">
                         <div class="brand-logo">
-                            <a href="../index.html">
+                            <a href="index.html">
                                 <img src="../assets/images/logo/2.png" alt="" class="img-fluid">
                             </a>
                         </div>
@@ -65,8 +74,8 @@
                                             </div>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">Home</a>
-                                            <ul class="nav-submenu menu-content">
+                                            <a href="index.html" class="nav-link menu-title">Home</a>
+                                            <!-- <ul class="nav-submenu menu-content">
                                                 <li><a href="index.html">Slider filter search</a>
                                                 </li>
                                                 <li><a href="layout-2.html">Corporate</a>
@@ -91,11 +100,11 @@
                                                 </li>
                                                 <li><a href="layout-12.html">Map with h-search</a>
                                                 </li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
                                         <li class="dropdown">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">Listing</a>
-                                            <ul class="nav-submenu menu-content">
+                                            <a href="listings.html" class="nav-link menu-title">Listings</a>
+                                            <!-- <ul class="nav-submenu menu-content">
                                                 <li>
                                                     <a href="javascript:void(0)" class="menu-title-level1">Grid view</a>
                                                     <ul class="nav-sub-childmenu level1">
@@ -206,9 +215,9 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
-                                        <li class="dropdown">
+                                        <!-- <li class="dropdown">
                                             <a href="javascript:void(0)" class="nav-link menu-title">property</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="single-property-1.html">sticky tab or classic</a></li>
@@ -222,8 +231,8 @@
                                                 <li><a href="single-property-9.html">Template breadcrumb</a></li>
                                                 <li><a href="single-property-10.html">modal details <span class="icon-trend label"><i class="fas fa-bolt"></i></span></a></li>
                                             </ul>
-                                        </li>
-                                        <li class="mega-menu">
+                                        </li> -->
+                                        <!-- <li class="mega-menu">
                                             <a href="javascript:void(0)" class="nav-link menu-title">
                                                 pages
                                             </a>
@@ -425,8 +434,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li class="dropdown">
+                                        </li> -->
+                                        <!-- <li class="dropdown">
                                             <a href="javascript:void(0)" class="nav-link menu-title">Modules</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="button-element.html">Button</a>
@@ -458,8 +467,8 @@
                                                 <li><a href="other-element.html">others</a>
                                                 </li>
                                             </ul>
-                                        </li>
-                                        <li class="dropdown">
+                                        </li> -->
+                                        <!-- <li class="dropdown">
                                             <a href="javascript:void(0)" class="nav-link menu-title">agent</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li><a href="agent-profile.html">Agent Profile</a></li>
@@ -467,14 +476,23 @@
                                                 <li><a href="agent-list.html">Agent List</a></li>
                                                 <li><a href="submit-property.html">Submit property <span class="label">New</span></a></li>
                                             </ul>
+                                        </li> -->
+                                        <li class="dropdown">
+                                            <a href="for-rent.html" class="nav-link menu-title">For Rent</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">Contact</a>
-                                            <ul class="nav-submenu menu-content">
+                                            <a href="for-sales.html" class="nav-link menu-title">For Sale</a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="new-homes.html" class="nav-link menu-title">New Homes</a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="contact.html" class="nav-link menu-title">Contact</a>
+                                            <!-- <ul class="nav-submenu menu-content">
                                                 <li><a href="contact.html">Contact us 1</a></li>
                                                 <li><a href="contact-2.html">Contact us 2</a></li>
                                                 <li><a href="contact-3.html">Contact us 3</a></li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
                                     </ul>
                                 </div>
@@ -483,6 +501,14 @@
                         <ul class="header-right">
                             <li class="right-menu">
                                 <ul class="nav-menu">
+                                    <li class="dropdown">
+                                        <a href="signup.html" class="nav-link menu-title">Register</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" id="logout" class="nav-link menu-title">Logout</a>
+                                    </li>
+                                </ul>
+                                <!-- <ul class="nav-menu">
                                     <li class="dropdown language">
                                         <a href="javascript:void(0)">
                                             <i data-feather="globe"></i>
@@ -551,7 +577,7 @@
                                             <i data-feather="user"></i>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </li>
                         </ul>
                     </div>
@@ -583,561 +609,68 @@
 
     <!-- user dashboard section start -->
     <section class="user-dashboard small-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="sidebar-user sticky-cls">
-                            <div class="user-profile">
-                                <div class="media">
-                                    <div class="change-pic">
-                                        <img src="../assets/images/avatar/3.jpg" class="img-fluid update_img" alt="">
-                                        <div class="change-hover">
-                                            <button type="button" class="btn"><i data-feather="camera"></i></button>
-                                            <input class="updateimg" type="file" name="img" onchange="readURL(this,0)">
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5>Zack Lee</h5>
-                                        <h6 class="font-roboto">zackle@gmail.com</h6>
-                                        <h6 class="font-roboto mb-0">+91 846 - 547 - 210</h6>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="sidebar-user sticky-cls">
+                        <div class="user-profile">
+                            <!-- <div class="media">
+                                <div class="change-pic">
+                                    <img src="../assets/images/avatar/3.jpg" class="img-fluid update_img" alt=""> -->
+                                    <!-- <div class="change-hover">
+                                        <button type="button" class="btn"><i data-feather="camera"></i></button>
+                                        <input class="updateimg" type="file" name="img" onchange="readURL(this,0)">
                                     </div>
                                 </div>
-                                <div class="connected-social">
-                                    <h6>Connect with</h6>
-                                    <ul class="agent-social">
-                                        <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li>  <a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="https://account.google.com" class="google"><i class="fab fa-google"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                                    </ul>
+                                <div class="media-body">
+                                    <h6 class="font-roboto">zackle@gmail.com</h6>
+                                    <h6 class="font-roboto mb-0">+91 846 - 547 - 210</h6>
                                 </div>
-                            </div>
-                            <div class="dashboard-list">
-                                <ul class="nav nav-tabs right-line-tab">
-                                    <li class="nav-item"><a class="nav-link"
-                                            href="user-dashboard.html">Dashboard</a></li>
-                                    <li class="nav-item"><a class="nav-link active"
-                                            href="user-listing.html">My Listing</a></li>
-                                    <li class="nav-item"><a class="nav-link"
-                                            href="user-create.html">create property</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-profile.html">My profile</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="user-favourites.html">favourites</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-payment.html">Cards & payment</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-privacy.html">Privacy</a></li>
-                                    <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
+                            </div> -->
+                            <h5 id="uname">Zack Lee</h5>
+                            <!-- <div class="connected-social">                                    
+                                <ul class="agent-social">
+                                    <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li>  <a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://account.google.com" class="google"><i class="fab fa-google"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="dashboard-content">
-                            <div class="tab-listing" id="listing">
-                                <div class="property-section">
-                                    <div class="property-grid-2 ratio_63">
-                                        <div class="filter-panel">
-                                            <div class="top-panel">
-                                                <div>
-                                                    <h2>My Listing</h2>
-                                                    <span class="show-result">Showing <span>1-15 of 69</span> Listings</span>
-                                                </div>
-                                                <ul class="grid-list-filter">
-                                                    <li>
-                                                        <div class="filter-bottom-title">
-                                                            <h6 class="mb-0 font-roboto">Advance search <i data-feather="align-center"
-                                                                    class="float-end ms-2"></i></h6>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="dropdown">
-                                                            <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Sort by
-                                                                    Newest</span> <i class="fas fa-angle-down ms-lg-3 ms-2"></i></span>
-                                                            <div class="dropdown-menu text-start">
-                                                                <a class="dropdown-item" href="javascript:void(0)">Sort by Newest</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)">Sort by Oldest</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)">Sory by featured</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)">Sort by price(Low to
-                                                                    high)</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="left-sidebar filter-bottom-content">
-                                            <h6 class="d-lg-none d-block text-end"><a href="javascript:void(0)"
-                                                    class="close-filter-bottom">Close filter</a></h6>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <div class="dropdown">
-                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Property
-                                                                Status</span> <i class="fas fa-angle-down"></i></span>
-                                                        <div class="dropdown-menu text-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)">Property Status</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">For Rent</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">For Sale</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="dropdown">
-                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Property
-                                                                Type</span> <i class="fas fa-angle-down"></i></span>
-                                                        <div class="dropdown-menu text-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)">Property Type</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">Apartment</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">Family House</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">Cottage</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">Condominium</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="dropdown">
-                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Property
-                                                                Location</span> <i class="fas fa-angle-down"></i></span>
-                                                        <div class="dropdown-menu text-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)">Property Location</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">Austria</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">Brazil</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">New york</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">USA</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="dropdown">
-                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Max
-                                                                Rooms</span> <i class="fas fa-angle-down"></i></span>
-                                                        <div class="dropdown-menu text-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)">Max Rooms</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">1</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">2</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">3</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">4</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">5</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">6</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="dropdown">
-                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Bed</span> <i
-                                                                class="fas fa-angle-down"></i></span>
-                                                        <div class="dropdown-menu text-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)">Bed</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">1</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">2</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">3</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">4</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="dropdown">
-                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Bath</span> <i
-                                                                class="fas fa-angle-down"></i></span>
-                                                        <div class="dropdown-menu text-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)">Bath</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">1</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">2</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">3</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)">4</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 text-end">
-                                                    <a href="javascript:void(0)" class="mt-3 btn btn-gradient color-2 btn-pill">Search Property</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="property-2 row column-sm zoom-gallery property-label property-grid list-view">
-                                            <div class="col-md-12">
-                                                <div class="property-box">
-                                                    <div class="property-image">
-                                                        <div class="property-slider">
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/10.jpg" class="bg-img" alt="">
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/5.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/3.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/4.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                        </div>
-                                                        <div class="labels-left">
-                                                            <div>
-                                                                <span class="label label-shadow">sale</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="seen-data">
-                                                            <i data-feather="camera"></i>
-                                                            <span>42</span>
-                                                        </div>                 
-                                                        <div class="overlay-property-box">
-                                                            <a href="compare.html" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Compare"> 
-                                                                <i data-feather="shuffle"></i>
-                                                            </a>
-                                                            <a href="user-favourites.html" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="wishlist">
-                                                                <i data-feather="heart"></i>                                                                               
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="property-details">
-                                                        <span class="font-roboto">France</span>
-                                                        <div class="my-listing font-roboto">Added 20 min ago</div>
-                                                        <a href="single-property.html">
-                                                            <h3>Merrick in Spring Way</h3>
-                                                        </a>
-                                                        <h6>$6558.00*</h6>
-                                                        <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef
-                                                            kitchen opening…</p>
-                                                        <ul>
-                                                            <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
-                                                        </ul>
-                                                        <div class="property-btn d-flex">
-                                                            <span>July 18, 2022</span>
-                                                            <button type="button"  onclick="document.location='single-property.html'" class="btn btn-dashed btn-pill color-2">Details</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="property-box">
-                                                    <div class="property-image">
-                                                        <div class="property-slider">
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/11.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/4.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/6.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/2.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                        </div>
-                                                        <div class="labels-left">
-                                                            <div>
-                                                                <span class="label label-shadow">sale</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="seen-data">
-                                                            <i data-feather="camera"></i>
-                                                            <span>10</span>
-                                                        </div>                 
-                                                        <div class="overlay-property-box">
-                                                            <a href="compare.html" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Compare"> 
-                                                                <i data-feather="shuffle"></i>
-                                                            </a>
-                                                            <a href="user-favourites.html" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="wishlist">
-                                                                <i data-feather="heart"></i>                                                                               
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="property-details">
-                                                        <span class="font-roboto">brazil</span>
-                                                        <div class="my-listing font-roboto">Added 45 min ago</div>
-                                                        <a href="single-property.html">
-                                                            <h3>Home in Merrick Way</h3>
-                                                        </a>
-                                                        <h6>$9554.00*</h6>
-                                                        <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef
-                                                            kitchen opening…</p>
-                                                        <ul>
-                                                            <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
-                                                        </ul>
-                                                        <div class="property-btn d-flex">
-                                                            <span>June 20, 2022</span>
-                                                            <button type="button"  onclick="document.location='single-property.html'" class="btn btn-dashed btn-pill color-2">Details</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="property-box">
-                                                    <div class="property-image">
-                                                        <div class="property-slider">
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/14.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/6.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/10.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                            <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/9.jpg" class="bg-img" alt="">
-                                                                
-                                                            </a>
-                                                        </div>
-                                                        <div class="labels-left">
-                                                            <div>
-                                                                <span class="label label-dark">no fees</span>
-                                                            </div>
-                                                            <span class="label label-success">open house</span>
-                                                        </div>
-                                                        <div class="seen-data">
-                                                            <i data-feather="camera"></i>
-                                                            <span>25</span>
-                                                        </div>                 
-                                                        <div class="overlay-property-box">
-                                                            <a href="compare.html" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Compare"> 
-                                                                <i data-feather="shuffle"></i>
-                                                            </a>
-                                                            <a href="user-favourites.html" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="wishlist">
-                                                                <i data-feather="heart"></i>                                                                               
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="property-details">
-                                                        <span class="font-roboto">usa</span>
-                                                        <div class="my-listing font-roboto">Added 2 Hour ago</div>
-                                                        <a href="single-property.html">
-                                                            <h3>Merrick in Spring Way</h3>
-                                                        </a>
-                                                        <h6>$8654.00*</h6>
-                                                        <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef
-                                                            kitchen opening…</p>
-                                                        <ul>
-                                                            <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
-                                                        </ul>
-                                                        <div class="property-btn d-flex">
-                                                            <span>August 4, 2022</span>
-                                                            <button type="button"  onclick="document.location='single-property.html'" class="btn btn-dashed btn-pill color-2">Details</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <nav class="theme-pagination">
-                                            <ul class="pagination">
-                                                <li class="page-item">
-                                                    <a class="page-link" href="javascript:void(0)" aria-label="Previous">
-                                                        <span aria-hidden="true">«</span>
-                                                        <span class="sr-only">Previous</span>
-                                                    </a>
-                                                </li>
-                                                <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                                                <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="javascript:void(0)" aria-label="Next">
-                                                        <span aria-hidden="true">»</span>
-                                                        <span class="sr-only">Next</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!-- user dashboard section end -->
-
-    <!-- footer start -->
-    <footer>
-        <div class="footer footer-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3">
-                        <div class="footer-details text-center">
-                            <a href="../index.html">
-                                <img src="../assets/images/logo/footer-logo.png" alt="">
-                            </a>
-                            <p>Elegant retreat in a quiet Coral Gables setting. This home provides
-                                wonderful entertaining spaces with a chef kitchen opening
-                            </p>
-                            <h6>Contact us</h6>
-                            <ul class="icon-list">
-                                <li><a href="contact-3.html"><i class="fas fa-map-marker-alt"></i></a></li>
-                                <li><a href="contact-3.html"><i class="fas fa-phone-alt"></i></a></li>
-                                <li><a href="signup.html"><i class="fas fa-envelope"></i></a></li>
-                                <li><a href="contact-3.html"><i class="fas fa-globe"></i></a></li>
-                                <li><a href="contact-3.html"><i class="fas fa-wifi"></i></a></li>
+                        <div class="dashboard-list">
+                            <ul class="nav nav-tabs right-line-tab">
+                                <li class="nav-item"><a class="nav-link" id="userlist"
+                                        href="user-profile.html">All Listings</a></li>
+                                <li class="nav-item"><a class="nav-link active" id="usersave"
+                                        href="user-listing.html">Saved Listing</a></li>
+                                <!-- <li class="nav-item"><a class="nav-link"
+                                        href="user-create.html">create property</a></li>
+                                <li class="nav-item"><a class="nav-link" href="user-profile.html">My profile</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="user-favourites.html">favourites</a></li>
+                                <li class="nav-item"><a class="nav-link" href="user-payment.html">Cards & payment</a></li>
+                                <li class="nav-item"><a class="nav-link" href="user-privacy.html">Privacy</a></li>
+                                <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li> -->
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-9">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4">
-                                <div class="footer-links footer-left-space">
-                                    <h5 class="footer-title ">Useful links
-                                        <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
-                                    </h5>
-                                    <ul class="footer-content">
-                                        <li>
-                                            <a href="about-us.html">About us</a>
-                                        </li>
-                                        <li>
-                                            <a href="grid-2.html">New Arrivals</a>
-                                        </li>
-                                        <li>
-                                            <a href="agency-grid.html">Agency</a>
-                                        </li>
-                                        <li>
-                                            <a href="faq.html">Faq</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact-2.html">Contact</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4">
-                                <div class="footer-links">
-                                    <h5 class="footer-title">feature
-                                        <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
-                                    </h5>
-                                    <ul class="footer-content">
-                                        <li>
-                                            <a href="services.html">Services</a>
-                                        </li>
-                                        <li>
-                                            <a href="agency-list.html">Agency</a>
-                                        </li>
-                                        <li>
-                                            <a href="agent-grid.html">Agents</a>
-                                        </li>
-                                        <li>
-                                            <a href="pricing.html">Pricing</a>
-                                        </li>
-                                        <li>
-                                            <a href="user-favourites.html">Favourites</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4">
-                                <div class="footer-links">
-                                    <h5 class="footer-title">Social
-                                        <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
-                                    </h5>
-                                    <ul class="footer-content">
-                                        <li>
-                                            <a href="#">Facebook</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Instagram</a>
-                                        </li>
-                                        <li>
-                                              <a href="#">Twitter</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://login.mailchimp.com/">Mail chimp</a>
-                                        </li>
-                                        <li>
-                                              <a href="#">Gmail</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="footer-links">
-                                    <h5 class="footer-title">subscribe
-                                        <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
-                                    </h5>
-                                    <div class="footer-content">
-                                        <p class="mb-0">
-                                            Real estate investing involves the purchase, Improvement of realty, management and sale or rental of real estate for profit.
-                                        </p>
-                                        <form>
-                                            <div class="input-group">
-                                                <input type="email" class="form-control" placeholder="Email Address" required>
-                                                <span class="input-group-apend">
-                                                    <button type="submit" class="input-group-text" id="basic-addon2"><i
-                                                        class="fas fa-paper-plane"></i></button>
-                                                </span>
+                </div>
+                <div class="col-lg-9">
+                    <div class="property-section">
+                        <div class="container">
+                            <div class="row ratio_63">
+                                <div class="col-12 property-grid-3">
+                                    <div class="left-sidebar filter-bottom-content">
+                                            <div class="col-12 text-end">
+                                                <a href="javascript:void(0)" class="mt-3 btn btn-gradient color-2 btn-pill">Search Property</a>
                                             </div>
-                                        </form>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-blog">
-                            <div class="slick-between">
-                                <div class="footer-slider">
-                                    <div>
-                                        <div class="media">
-                                            <a href="blog-detail-left-sidebar.html">
-                                                <div class="img-overlay">
-                                                        <img src="../assets/images/footer/1.jpg" alt="">
-                                                </div>
-                                            </a>
-                                            <div class="media-body">
-                                               <h6><a href="blog-detail-left-sidebar.html">Real Estate Industry</a></h6>
-                                                <p class="font-roboto"><a href="blog-detail-right-sidebar.html">An Electronic version of the real estate industry.</a></p>
-                                            </div>
+                                    <div class="property-wrapper-grid">
+                                        <div class="property-2 row column-sm zoom-gallery property-label property-grid " id="htmlElement">
                                         </div>
                                     </div>
-                                    <div>
-                                        <div class="media">
-                                            <a href="blog-detail-left-sidebar.html">
-                                                <div class="img-overlay">
-                                                        <img src="../assets/images/footer/2.jpg" alt="">
-                                                </div>
-                                            </a>
-                                            <div class="media-body">
-                                                <h6><a href="blog-detail-left-sidebar.html">Entertaining Spaces</a></h6>
-                                                <p class="font-roboto"><a href="blog-detail-right-sidebar.html">This home provides
-                                                    wonderful entertaining spaces.</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="media">
-                                            <a href="blog-detail-left-sidebar.html">
-                                                <div class="img-overlay">
-                                                        <img src="../assets/images/footer/3.jpg" alt="">
-                                                </div>
-                                            </a>
-                                            <div class="media-body">
-                                               <h6><a href="blog-detail-left-sidebar.html">Estate Agents Work</a></h6>
-                                                <p class="font-roboto"><a href="blog-detail-right-sidebar.html">The market of buying and selling real estate.</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="media">
-                                            <a href="blog-detail-left-sidebar.html">
-                                                <div class="img-overlay">
-                                                        <img src="../assets/images/footer/4.jpg" alt="">
-                                                </div>
-                                            </a>
-                                            <div class="media-body">
-                                                <h6><a href="blog-detail-left-sidebar.html">Increase in Demand</a></h6>
-                                                <p class="font-roboto"><a href="blog-detail-right-sidebar.html">The effects of an increase demand in short run.</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <nav class="theme-pagination" id="htmlPagination">
+                                    </nav>
                                 </div>
                             </div>
                         </div>
@@ -1145,21 +678,169 @@
                 </div>
             </div>
         </div>
-        <div class="sub-footer footer-light">
+</section>
+    <!-- user dashboard section end -->
+
+    <!-- footer start -->
+    <footer class="footer-brown">
+        <div class="footer footer-custom-col">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-md-6 order-xl">
+                        <div class="footer-links footer-details">
+                            <h5 class="footer-title d-md-none">Contact us
+                                <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
+                            </h5>
+                            <div class="footer-content">
+                                <a href="index.html">
+                                    <img src="../assets/images/logo/6.png" alt="" width="50%" class="img-fluid">
+                                </a>
+                                <p>  </p>
+                                <div class="footer-contact">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i>Bengaluru, India
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-phone-alt"></i>+91 7022218416
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-envelope"></i>business@brokerinblue.com
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-3">
+                        <div class="footer-links footer-left-space">
+                            <h5 class="footer-title">About
+                                <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
+                            </h5>
+                            <ul class="footer-content">
+                                <li>
+                                    <a href="about-us.html">About us</a>
+                                </li>
+                                <li>
+                                    <a href="listings.html">Listing</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="single-property-1.html">Property</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-creative-1.html">Page</a>
+                                </li>
+                                <li>
+                                    <a href="property-element.html">Module</a>
+                                </li>
+                                <li>
+                                    <a href="blog-left-sidebar.html">Blog</a>
+                                </li> -->
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 order-xl" style="margin-top: 0px;">
+                        <div class="footer-links">
+                            <h5 class="footer-title">Our Location
+                                <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
+                            </h5>
+                            <div class="footer-content">
+                                <div class="footer-map">
+                                    <iframe
+                                        title="realestate location"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.116639264216!2d77.56875682451437!3d13.028243587810831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17db5466bbc1%3A0xd8434a437089ebac!2sBrokerInBlue%20-%20Professional%20Real%20Estate%20Brokers!5e0!3m2!1sen!2sin!4v1660483648618!5m2!1sen!2sin"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-xl-2 col-md-3 order-lg">
+                        <div class="footer-links footer-left-space">
+                            <h5 class="footer-title">Tag
+                                <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
+                            </h5>
+                            <ul class="footer-content">
+                                <li>
+                                    <a href="blog-no-sidebar.html">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="blog-list-left-sidebar.html">Blog list</a>
+                                </li>
+                                <li>
+                                    <a href="blog-creative-right-sidebar.html">Creative blog</a>
+                                </li>
+                                <li>
+                                    <a href="blog-masonry-left-sidebar.html">Masonry</a>
+                                </li>
+                                <li>
+                                    <a href="blog-list-mix-right-sidebar.html">Mix blog</a>
+                                </li>
+                                <li>
+                                    <a href="blog-detail-gallery.html">Details</a>
+                                </li>
+                                <li>
+                                    <a href="blog-detail-video.html">Video</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-xl-3 col-md-6">
+                        <div class="footer-links">
+                            <h5 class="footer-title">Our Latest Blog
+                                <span class="according-menu"><i class="fas fa-chevron-down"></i></span>
+                            </h5>
+                            <div class="footer-content">
+                                <div class="footer-blog">
+                                    <div class="media">
+                                        <a href="blog-detail-left-sidebar.html">
+                                            <div class="img-overlay">
+                                                    <img src="../assets/images/footer/1.jpg" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="media-body">
+                                            <h6><a href="blog-detail-left-sidebar.html">Top News</a></h6>
+                                            <p class="font-roboto mb-0"><a href="blog-detail-right-sidebar.html">Apartment or Flat An individual unit in a multi-unit building.</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <a href="blog-detail-left-sidebar.html">
+                                            <div class="img-overlay">
+                                                    <img src="../assets/images/footer/2.jpg" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="media-body">
+                                            <h6><a href="blog-detail-left-sidebar.html">Latest News</a></h6>
+                                            <p class="font-roboto mb-0"><a href="blog-detail-right-sidebar.html">Residences can be classified and connected to residences..</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="sub-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-md-6">
-                        <div class="copy-right">
-                            <p class="mb-0">Copyright 2022, All Right Reserved Sheltos</p>
+                        <div class="footer-social sub-footer-link">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li>  <a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li>  <a href="#"><i class="fab fa-google"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 text-end">
-                        <ul class="sub-footer-link">
-                            <li><a href="layout-2.html">Home</a></li>
-                            <li><a href="terms-conditions.html">Terms</a></li>
-                            <li><a href="privacy-policy.html">Privacy policy</a></li>
-                            <li><a href="contact-2.html">Contact</a></li>
-                        </ul>
+                        <div class="copy-right">
+                            <!-- <p class="mb-0">Copyright 2022 Sheltos By <i data-feather="heart"></i> Pixelstrap</p> -->
+                            <p class="mb-0">Copyright &copy; 2022. Broker in Blue</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1176,7 +857,7 @@
     <!-- tap to top end -->
 
     <!-- log out modal start -->
-    <div class="modal fade edit-profile-modal logout-modal" id="logout">
+    <!-- <div class="modal fade edit-profile-modal logout-modal" id="logout">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1195,11 +876,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- log out modal end -->
 
     <!-- customizer start -->
-    <div class="customizer-wrap">
+    <!-- <div class="customizer-wrap">
         <div class="customizer-links">
             <i data-feather="settings"></i>
         </div>
@@ -1247,7 +928,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- customizer end -->
 
     <!-- latest jquery-->
@@ -1256,33 +937,76 @@
     <!-- popper js-->
     <script src="../assets/js/popper.min.js"></script>
 
+    <!-- magnific js -->
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+    <script src="../assets/js/zoom-gallery.js"></script>
+
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
     <!-- feather icon js-->
     <script src="../assets/js/feather-icon/feather.min.js"></script>
     <script src="../assets/js/feather-icon/feather-icon.js"></script>
 
-    <!-- magnific js -->
-    <script src="../assets/js/jquery.magnific-popup.js"></script>
-    <script src="../assets/js/zoom-gallery.js"></script>
+    <!-- range slider js -->
+    <script src="../assets/js/jquery-ui.js"></script>
+    <script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../assets/js/range-slider.js"></script>
 
     <!-- slick js -->
     <script src="../assets/js/slick.js"></script>
     <script src="../assets/js/slick-animation.min.js"></script>
     <script src="../assets/js/custom-slick.js"></script>
 
-    <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <!-- wow js-->
+    <script src="../assets/js/wow.min.js"></script>
+
+    <!--grid js -->
+    <script src="../assets/js/grid-list.js"></script>
+
+    <!-- datepicker js-->
+    <!-- <script src="../assets/js/date-picker.js"></script> -->
 
     <!-- Template js-->
     <script src="../assets/js/script.js"></script>
 
     <!-- Customizer js-->
-    <script src="../assets/js/customizer.js"></script>
+    <!-- <script src="../assets/js/customizer.js"></script> -->
 
-    <!-- wow js-->
-    <script src="../assets/js/wow.min.js"></script>
+    <!-- <script>
 
-    <!-- Color-picker js-->
-    <script src="../assets/js/color/template-color.js"></script>
+        (function($) {
+            "use strict";
+            // colorpicker js
+            var color_picker3 = document.getElementById("ColorPicker3").value;
+            document.getElementById("ColorPicker3").onchange = function() {
+                color_picker3 = this.value;
+                document.documentElement.style.setProperty('--theme-default3', color_picker3);
+            };
+
+            var color_picker4 = document.getElementById("ColorPicker4").value;
+            document.getElementById("ColorPicker4").onchange = function() {
+                color_picker4 = this.value;
+                document.documentElement.style.setProperty('--theme-default4', color_picker4);
+            };
+            
+        })(jQuery);
+
+       $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd mmmm yy'
+        });
+
+    </script> -->
+
+    <!-- Custom js -->
+    <script src="../assets/js/myjs.js"></script>
+    <script src="../assets/js/myjs-frontend.js"></script>
+    <script src="../assets/js/bib.js"></script> 
+    <script>
+        collectTokenAndId();
+        getSavedProperty();
+    </script>
 
 </body>
 
