@@ -256,15 +256,16 @@ function collectTokenAndId(){
     var data = window.location.search;
     var path = window.location.pathname;
 
-    if(window.location.host){
-        window.history.pushState('', '', '/');
-        window.history.pushState('', '', path);
-    }
     if(window.location.href.includes('?token=') && window.location.href.includes('&id=') && window.location.href.includes('&email=') && window.location.href.includes('&name=')){
         userToken = data.split('?token=')[1].split('&id=')[0];
         userId = data.split('?token=')[1].split('&id=')[1].split('&email=')[0];
         userEmail = data.split('?token=')[1].split('&id=')[1].split('&email=')[1].split('&name=')[0];
         userName = data.split('?token=')[1].split('&id=')[1].split('&email=')[1].split('&name=')[1];
+    }
+
+    if(window.location.host){
+        window.history.pushState('', '', '/');
+        window.history.pushState('', '', path);
     }
 
     checkTokens();
