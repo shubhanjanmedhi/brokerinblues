@@ -282,8 +282,8 @@
                         </div>
                         <ul class="profile-dropdown onhover-show-div">
                             <!-- <li><a href="user-profile.html"><span>Account </span><i data-feather="user"></i></a></li> -->
-                            <li><a href="listing.html"><span>Listing</span><i data-feather="file-text"></i></a></li>
-                            <li><a href="login.html"><span>Log Out</span><i data-feather="log-in"></i></a></li>
+                            <!-- <li><a href="listing.html"><span>Listing</span><i data-feather="file-text"></i></a></li> -->
+                            <li><a href="javascript:void(0)" id="logout"><span>Log Out</span><i data-feather="log-in"></i></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -331,7 +331,7 @@
                                 </a>
                                 <ul class="nav-submenu menu-content">
                                     <li>
-                                        <a href="add-property.html">
+                                        <a href="add-property.html" id="addPropMenu">
                                             <i data-feather="chevrons-right"></i>
                                             add property
                                         </a>
@@ -343,7 +343,7 @@
                                         </a>
                                     </li> -->
                                     <li>
-                                        <a href="listing.html">
+                                        <a href="listing.html" id="propListMenu">
                                             <i data-feather="chevrons-right"></i>
                                             property list
                                         </a>
@@ -408,7 +408,7 @@
                                         </a>
                                     </li> -->
                                     <li>
-                                        <a href="add-agent.html">
+                                        <a href="add-agent.html" id="addAgencyMenu">
                                             <i data-feather="chevrons-right"></i>
                                             Add agency
                                         </a>
@@ -426,7 +426,7 @@
                                         </a>
                                     </li> -->
                                     <li>
-                                        <a href="all-agents.html">
+                                        <a href="all-agents.html" id="allAgenciesMenu">
                                             <i data-feather="chevrons-right"></i>
                                             All agencies
                                         </a>
@@ -440,13 +440,13 @@
                                 </ul>
                             </li>
                             <li class="sidebar-item">
-                                <a href="tickets.html" class="sidebar-link only-link">
+                                <a href="tickets.html" class="sidebar-link only-link" id="ticketsMenu">
                                     <i data-feather="layout"></i>
                                     <span>Tickets</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="trash.html" class="sidebar-link only-link">
+                                <a href="trash.html" class="sidebar-link only-link" id="trashMenu">
                                     <i data-feather="trash-2"></i>
                                     <span>Trash</span>
                                 </a>
@@ -875,6 +875,10 @@
     <!-- Custom js -->
     <script src="../assets/js/myjs.js"></script>
     <script src="../assets/js/agency.js"></script>
+    <script src="../assets/js/bib.js"></script>
+    <script>
+        collectTokenAndId();
+    </script>
 
 </body>
 

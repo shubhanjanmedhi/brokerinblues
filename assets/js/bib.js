@@ -19,6 +19,13 @@ if(window.location.pathname.includes('login')){
     }
 }
 
+if(window.location.pathname.includes('forgot-password')){
+    var submitButton = document.getElementById('submitButton');
+    submitButton.onclick = function (){
+        forgotPassword();
+    }
+}
+
 function signup(){
     var email = document.getElementById('email').value;
     var password = document.getElementById('pwd-input').value;
@@ -125,32 +132,30 @@ function forgotPassword(){
     submitText.innerText = 'Sending...';
     submitSpinner.style.display = 'inline-block';
 
-    var formdata = new FormData();
+    const params = {
+        email: email
+    }
 
-    formdata.append("email", email);
-
-    var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
-        };
-    
-        fetch(urls+'/v1/users/forgotpassword', requestOptions)
-        .then(response => {
-            if(response.status != 200 && response.status != 201){
-                console.log('API status: '+response.status);
-                submitText.innerText = 'Send Request';
-                submitSpinner.style.display = 'none';
-            }else{
-                message.style.display = 'block';
-                console.log(response);
+    const http = new XMLHttpRequest();
+    try{
+        http.open('POST',urls+'/v1/users/forgotpassword');
+        http.setRequestHeader('Content-type', 'application/json');
+        http.send(JSON.stringify(params));
+        http.onload = function(){
+            if(http.status != 200 && http.status != 201){
+                console.log('API status: '+http.status);
                 submitText.innerText = 'Send Request';
                 submitSpinner.style.display = 'none';
             }
-        })
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error)
-        );
+            else{
+                message.style.display = 'block';
+                submitText.innerText = 'Send Request';
+                submitSpinner.style.display = 'none';
+            }
+        }
+    }catch(e){
+        console.log(e);
+    }
 }
 
 
@@ -175,7 +180,11 @@ function logout(){
                 var res = JSON.parse(http.response);
                 console.log(res);
                 if(res.success){
-                    window.location.href = 'login.html'
+                    if(window.location.href.includes('back-end')){
+                        window.location.href = '../main/login.html';
+                    }else{
+                        window.location.href = 'login.html';
+                    }
                 }
             }
         }
@@ -187,13 +196,13 @@ function logout(){
 function saveProperty(propertyId){
 
     const params = {
-        userId: userId,
+        id: userId,
         propertyId: propertyId
     }
 
     const http = new XMLHttpRequest();
     try{
-        http.open('POST',urls+'/v1/users/login');
+        http.open('POST',urls+'/v1/savedproperty/');
         http.setRequestHeader('Content-type', 'application/json');
         http.send(JSON.stringify(params));
         http.onload = function(){
@@ -219,13 +228,13 @@ function saveProperty(propertyId){
 function getSavedProperty(){
 
     params = {
-        userId: userId,
+        id: userId,
         token: userToken
     }
 
     const http = new XMLHttpRequest();
     try{
-        http.open('POST',urls+'/v1/users/login');
+        http.open('POST',urls+'/v1/savedproperty/list');
         http.setRequestHeader('Content-type', 'application/json');
         http.send(JSON.stringify(params));
         http.onload = function(){
@@ -245,9 +254,9 @@ function getSavedProperty(){
 
 function checkSavedProperty(){
 
-    for(i=0; i<savedProperties.length; i++){
-        document.getElementById(savedProperties[i].propertyId).innerHTML = '<i data-feather="check"></i>';
-        document.getElementById(savedProperties[i].propertyId).title = 'Saved';
+    for(i=0; i<savedProperties.properties.length; i++){
+        document.getElementById(savedProperties.properties[i].id).innerHTML = '<i data-feather="check"></i>';
+        document.getElementById(savedProperties.properties[i].id).title = 'Saved';
     }
     loadFrontEndScript();
 }
@@ -268,6 +277,15 @@ function collectTokenAndId(){
         window.history.pushState('', '', path);
     }
 
+    if(window.location.href.includes('back-end')){
+        document.getElementById('trashMenu').href = 'trash.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+        document.getElementById('ticketsMenu').href = 'tickets.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+        document.getElementById('allAgenciesMenu').href = 'all-agents.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+        document.getElementById('addAgencyMenu').href = 'add-agent.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+        document.getElementById('propListMenu').href = 'listing.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+        document.getElementById('addPropMenu').href = 'add-property.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+    }
+
     checkTokens();
 
     if(window.location.href.includes('user-profile') || window.location.href.includes('user-listing')){
@@ -277,22 +295,48 @@ function collectTokenAndId(){
 
 function checkTokens(){
     if(!userToken){
-        window.location.href = 'login.html';
+        if(window.location.href.includes('back-end')){
+            window.location.href = '../main/login.html';
+        }else{
+            window.location.href = 'login.html';
+        }
     }else if(!userId){
-        window.location.href = 'login.html';
+        if(window.location.href.includes('back-end')){
+            window.location.href = '../main/login.html';
+        }else{
+            window.location.href = 'login.html';
+        }
     }else if(!userEmail){
-        window.location.href = 'login.html';
+        if(window.location.href.includes('back-end')){
+            window.location.href = '../main/login.html';
+        }else{
+            window.location.href = 'login.html';
+        }
     }else if(!userName){
-        window.location.href = 'login.html';
+        if(window.location.href.includes('back-end')){
+            window.location.href = '../main/login.html';
+        }else{
+            window.location.href = 'login.html';
+        }
     }else{
-        document.getElementById('userlist').href = 'user-profile.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
-        document.getElementById('usersave').href = 'user-listing.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
-        document.getElementById('logout').onclick = function(){
-            logout();
+        if(window.location.href.includes('back-end')){
+            document.getElementById('logout').onclick = function(){
+                logout();
+            }
+        }else{
+            document.getElementById('userlist').href = 'user-profile.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+            document.getElementById('usersave').href = 'user-listing.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+            document.getElementById('logout').onclick = function(){
+                logout();
+            }
         }
     }
 }
 
 function populateUserFields(){
     document.getElementById('uname').innerText = userName;
+}
+
+function allPropCount(){
+    document.getElementById('allPropCount').innerText = allPropertiesCount;
 }

@@ -123,8 +123,8 @@ function showAllPropertiesFrontend(recordsPerPage){
                 '<div class="property-details"><span class="font-roboto">'+allProperties[j].city+'</span><a href="../main/single-property.html?'+allProperties[j]._id+'"><h3>'+allProperties[j].propertyType+' '+allProperties[j].propertyStatus+
                 '</h3></a><h6>₹'+allProperties[j].price+'</h6><p class="font-roboto light-font">'+allProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
                 allProperties[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+allProperties[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
-                allProperties[j].area+' Sq. Ft.</li></ul><div class="property-btn d-flex"><button type="button"  onclick=details("'+allProperties[j]._id+'") class="btn btn-dashed btn-pill color-2">Details</button>'+
-                '</div></div></div></div>';
+                allProperties[j].area+' Sq. Ft.</li></ul><!--div class="property-btn d-flex"><button type="button"  onclick=details("'+allProperties[j]._id+'") class="btn btn-dashed btn-pill color-2">Details</button>'+
+                '</div--></div></div></div>';
         }else{
             htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
                 imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">'+
@@ -355,7 +355,11 @@ function showForSale(currentPage,recordsPerPage){
             else{
                 var res = JSON.parse(http.response);
                 allSales = res.data;
-                showAllForSale();
+                if(window.location.href.includes('back-end/index.html')){
+                    document.getElementById('allSalesCount').innerText = res.count;
+                }else{
+                    showAllForSale();
+                }
             }
         }
     }catch(e){
@@ -415,7 +419,11 @@ function showForRent(currentPage,recordsPerPage){
             else{
                 var res = JSON.parse(http.response);
                 allRent = res.data;
-                showAllForRent();
+                if(window.location.href.includes('back-end/index.html')){
+                    document.getElementById('allRentCount').innerText = res.count;
+                }else{
+                    showAllForRent();
+                }
             }
         }
     }catch(e){

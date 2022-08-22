@@ -342,18 +342,22 @@ function getAllProperties(currentPage,recordsPerPage){
 
                 allProperties = res.data;
 
-                if(currentCount != 0){
-                    if(window.location.href.includes('main')){
-                        showAllPropertiesFrontend(recordsPerPage);
-                    }else{
-                        showAllProperties(recordsPerPage);
-                    }
-                }
-
-                if(currentCount > recordsPerPage){
-                    currentCount = currentCount - recordsPerPage;
+                if(window.location.href.includes('back-end/index.html')){
+                    document.getElementById('allPropCount').innerText = allPropertiesCount;
                 }else{
-                    currentCount = currentCount - currentCount;
+                    if(currentCount != 0){
+                        if(window.location.href.includes('main')){
+                            showAllPropertiesFrontend(recordsPerPage);
+                        }else{
+                            showAllProperties(recordsPerPage);
+                        }
+                    }
+    
+                    if(currentCount > recordsPerPage){
+                        currentCount = currentCount - recordsPerPage;
+                    }else{
+                        currentCount = currentCount - currentCount;
+                    }
                 }
             }
         }
