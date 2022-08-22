@@ -316,7 +316,7 @@
         
         if(!$(this).hasClass('added')) {
             $.notify({
-                message: 'Property Successfully added in wishlist'
+                message: 'Property Deleted Successfully'
             }, {
                 element: 'body',
                 position: null,
@@ -351,7 +351,7 @@
         }
         else{
             $.notify({
-                message: 'Property Successfully removed from wishlist'
+                message: 'Property Saved Successfully'
             }, {
                 element: 'body',
                 position: null,
@@ -390,7 +390,7 @@
     $('.property-box .overlay-property-box .effect-round1').on('click', function() {
 
         $.notify({
-            message: 'Property Successfully added in wishlist'
+            message: 'Property Successfully added'
         }, {
             element: 'body',
             position: null,

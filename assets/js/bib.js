@@ -196,8 +196,9 @@ function logout(){
 function saveProperty(propertyId){
 
     const params = {
-        id: userId,
-        propertyId: propertyId
+        userId: userId,
+        propertyId: propertyId,
+        token: userToken
     }
 
     const http = new XMLHttpRequest();
@@ -210,14 +211,7 @@ function saveProperty(propertyId){
                 console.log('API status: '+http.status);
             }
             else{
-                var res = JSON.parse(http.response);
-                console.log(res);
-                if(res.success){
-                    // token = '';
-                    // id = '';
-                    // userObject = '',
-                    // window.location.href = 'login.html'
-                }
+                window.location.href = 'user-profile.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
             }
         }
     }catch(e){
@@ -228,7 +222,7 @@ function saveProperty(propertyId){
 function getSavedProperty(){
 
     params = {
-        id: userId,
+        userId: userId,
         token: userToken
     }
 
@@ -244,7 +238,11 @@ function getSavedProperty(){
             else{
                 var res = JSON.parse(http.response);
                 savedProperties = res.data;
-                checkSavedProperty();
+                if(window.location.href.includes('user-listing')){
+                    showAllSavedProperties();
+                }else{
+                    checkSavedProperty();
+                }
             }
         }
     }catch(e){
@@ -252,13 +250,65 @@ function getSavedProperty(){
     }
 }
 
+function showAllSavedProperties(){
+    var htmlElement = document.getElementById('htmlElement');
+    var htmlElementVar = '';
+
+    for(j=0; j<savedProperties.length; j=j+2){
+        var imagesElement = '';
+
+        for(i=0; i<savedProperties[j].media.length; i++){
+            imagesElement = imagesElement+'<a href="javascript:void(0)"><img src="'+url+savedProperties[j].media[i]+'" class="bg-img" alt=""></a>';
+        }
+
+
+        htmlElementVar = htmlElementVar+'<div class="col-xl-4 col-md-6 xl-6"><div class="property-box"><div class="property-image"><div class="property-slider">'+
+            imagesElement+'</div><div class="labels-left"><div><span class="label label-shadow">'+savedProperties[j].propertyStatus+'</span></div></div><div class="overlay-property-box"><a id="'+savedProperties[j]._id+
+            '" href=javascript:deleteProperty("'+savedProperties[j+1].sid+'") class="effect-round like added" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete"><i data-feather="trash-2"></i></a></div></div>'+
+            '<div class="property-details"><span class="font-roboto">'+savedProperties[j].city+'</span><a href="../main/single-property.html?'+savedProperties[j]._id+'"><h3>'+savedProperties[j].propertyType+' '+savedProperties[j].propertyStatus+
+            '</h3></a><h6>₹'+savedProperties[j].price+'</h6><p class="font-roboto light-font">'+savedProperties[j].description+'</p><ul><li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : '+
+            savedProperties[j].beds+'</li><li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : '+savedProperties[j].baths+'</li><li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Area : '+
+            savedProperties[j].area+' Sq. Ft.</li></ul><!--div class="property-btn d-flex"><button type="button"  onclick=details("'+savedProperties[j]._id+'") class="btn btn-dashed btn-pill color-2">Details</button>'+
+            '</div--></div></div></div>';
+
+    }
+
+    htmlElement.innerHTML = htmlElementVar;
+    loadFrontEndScript();
+}
+
 function checkSavedProperty(){
 
-    for(i=0; i<savedProperties.properties.length; i++){
-        document.getElementById(savedProperties.properties[i].id).innerHTML = '<i data-feather="check"></i>';
-        document.getElementById(savedProperties.properties[i].id).title = 'Saved';
+    for(i=0; i<savedProperties.length; i=i+2){
+        document.getElementById(savedProperties[i]._id).innerHTML = '<i data-feather="check"></i>';
+        document.getElementById(savedProperties[i]._id).title = 'Saved';
     }
     loadFrontEndScript();
+}
+
+function deleteProperty(propertyId){
+    params = {
+        id: propertyId,
+        token: userToken
+    }
+
+    const http = new XMLHttpRequest();
+    try{
+        http.open('DELETE',urls+'/v1/savedproperty/delete/'+propertyId);
+        http.setRequestHeader('Content-type', 'application/json');
+        // http.send(JSON.stringify(params));
+        http.send();
+        http.onload = function(){
+            if(http.status != 200 && http.status != 201){
+                console.log('API status: '+http.status);
+            }
+            else{
+                window.location.href = 'user-listing.html?token='+userToken+'&id='+userId+'&email='+userEmail+'&name='+userName;
+            }
+        }
+    }catch(e){
+        console.log(e);
+    }
 }
 
 function collectTokenAndId(){
